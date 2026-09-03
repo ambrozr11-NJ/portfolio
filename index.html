@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Ambareesh V P | Mechanical Engineer & AI/ML Enthusiast</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="description"
+content="Portfolio of Ambareesh V P - Mechanical Engineering graduate exploring Artificial Intelligence, Machine Learning, Data Science and Engineering.">
 
-    <meta name="description"
-          content="Ambareesh V P | Mechanical Engineer | AI ML | Data Science">
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>Ambareesh V P | Portfolio</title>
-
-
-    <!-- GOOGLE FONTS -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -34,840 +22,463 @@
 ========================================================= */
 
 :root {
+    --bg: #07070d;
+    --bg2: #0c0b14;
+    --card: rgba(255,255,255,0.045);
 
-    --bg: #050505;
-    --bg2: #0b0a0e;
+    --text: #f4f2fa;
+    --muted: #9a98a8;
 
-    --card: rgba(17, 15, 21, .78);
+    --purple: #9b6cff;
+    --purple2: #6d42ff;
 
-    --text: #f7f4ed;
+    --cyan: #46e6ff;
+    --blue: #5b8cff;
 
-    --muted: #98939d;
+    --border: rgba(255,255,255,0.09);
 
-    --primary: #b88cff;
-
-    --primary-light: #d8bdff;
-
-    --gold: #e8c47c;
-
-    --white: #ffffff;
-
-    --border: rgba(255,255,255,.10);
-
-    --purple-glow:
-        rgba(184,140,255,.20);
-
-    --gold-glow:
-        rgba(232,196,124,.12);
-
-    --max: 1200px;
-
+    --radius: 24px;
 }
-
 
 /* =========================================================
    RESET
 ========================================================= */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
-
 
 html {
-
     scroll-behavior: smooth;
-
 }
 
-
 body {
-
+    font-family: "Inter", sans-serif;
     background:
-
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(184,140,255,.07),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 90% 30%,
-            rgba(232,196,124,.045),
-            transparent 30%
-        ),
-
+        radial-gradient(circle at 15% 10%, rgba(108,66,255,.15), transparent 30%),
+        radial-gradient(circle at 85% 30%, rgba(70,230,255,.08), transparent 25%),
         var(--bg);
 
     color: var(--text);
-
-    font-family: Inter, sans-serif;
-
     overflow-x: hidden;
-
 }
-
 
 a {
-
     color: inherit;
-
     text-decoration: none;
-
 }
-
 
 button {
-
     font-family: inherit;
-
 }
-
 
 ::selection {
-
-    background: var(--primary);
-
-    color: #050505;
-
+    background: var(--purple);
+    color: white;
 }
-
 
 /* =========================================================
-   LOADER
-========================================================= */
-
-.loader {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    background: #030303;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
-
-}
-
-
-.loader.hide {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-}
-
-
-.loader-inner {
-
-    text-align: center;
-
-}
-
-
-.loader-logo {
-
-    font-family: "DM Mono", monospace;
-
-    font-size: 15px;
-
-    letter-spacing: 3px;
-
-    color: var(--primary);
-
-    margin-bottom: 20px;
-
-}
-
-
-.loader-line {
-
-    width: 240px;
-
-    height: 1px;
-
-    background: rgba(255,255,255,.1);
-
-    overflow: hidden;
-
-}
-
-
-.loader-line::after {
-
-    content: "";
-
-    display: block;
-
-    width: 0;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--primary),
-            var(--gold)
-        );
-
-    animation:
-        loading 1.7s ease forwards;
-
-}
-
-
-@keyframes loading {
-
-    to {
-
-        width: 100%;
-
-    }
-
-}
-
-
-/* =========================================================
-   CANVAS
-========================================================= */
-
-#network {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    z-index: -5;
-
-    opacity: .5;
-
-}
-
-
-/* =========================================================
-   GRID BACKGROUND
-========================================================= */
-
-.grid-bg {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: -4;
-
-    pointer-events: none;
-
-    background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 70px 70px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
-
-}
-
-
-/* =========================================================
-   NOISE
-========================================================= */
-
-.noise {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1000;
-
-    pointer-events: none;
-
-    opacity: .025;
-
-    background-image:
-
-        url(
-        "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"
-        );
-
-}
-
-
-/* =========================================================
-   CURSOR
+   CUSTOM CURSOR
 ========================================================= */
 
 .cursor {
-
     position: fixed;
+    width: 18px;
+    height: 18px;
 
-    width: 7px;
-
-    height: 7px;
-
+    border: 1px solid rgba(70,230,255,.8);
     border-radius: 50%;
 
-    background: var(--primary);
-
     pointer-events: none;
-
-    z-index: 10000;
-
-    transform:
-        translate(-50%, -50%);
-
-    box-shadow:
-        0 0 18px var(--primary);
-
-}
-
-
-.cursor-ring {
-
-    position: fixed;
-
-    width: 34px;
-
-    height: 34px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(184,140,255,.5);
-
-    pointer-events: none;
-
     z-index: 9999;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     transition:
-        width .25s ease,
-        height .25s ease;
-
+        width .2s,
+        height .2s,
+        background .2s;
 }
 
+.cursor-dot {
+    position: fixed;
 
-.cursor-ring.active {
+    width: 4px;
+    height: 4px;
 
-    width: 55px;
+    background: var(--cyan);
+    border-radius: 50%;
 
-    height: 55px;
+    pointer-events: none;
+    z-index: 10000;
 
-    border-color:
-        var(--gold);
-
+    transform: translate(-50%, -50%);
 }
-
 
 /* =========================================================
-   NAVIGATION
+   BACKGROUND
 ========================================================= */
 
-.nav {
+.background-grid {
+    position: fixed;
+    inset: 0;
 
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+
+    background-size: 70px 70px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+
+    z-index: -3;
+}
+
+.glow {
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(125,75,255,.08);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    transition: .15s ease-out;
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav {
     position: fixed;
 
     top: 0;
-
     left: 0;
+    right: 0;
 
-    width: 100%;
-
-    z-index: 500;
-
-    padding: 22px 0;
-
-    transition: .4s ease;
-
-}
-
-
-.nav.scrolled {
-
-    padding: 13px 0;
-
-    background:
-        rgba(5,5,5,.82);
-
-    backdrop-filter:
-        blur(20px);
-
-    border-bottom:
-        1px solid var(--border);
-
-}
-
-
-.nav-inner {
-
-    width:
-        min(
-            calc(100% - 50px),
-            var(--max)
-        );
-
-    margin: auto;
+    height: 82px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-}
+    padding: 0 6%;
 
+    z-index: 1000;
+
+    background: rgba(7,7,13,.65);
+
+    backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
 
 .logo {
+    font-family: "Space Grotesk", sans-serif;
 
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size: 16px;
-
+    font-size: 21px;
     font-weight: 700;
 
-    letter-spacing: 2px;
-
-    color: var(--text);
-
+    letter-spacing: -1px;
 }
-
 
 .logo span {
-
-    color: var(--primary);
-
+    color: var(--cyan);
 }
-
 
 .nav-links {
-
     display: flex;
-
-    gap: 27px;
-
+    gap: 30px;
     list-style: none;
-
 }
-
 
 .nav-links a {
-
-    font-family:
-        "DM Mono",
-        monospace;
-
     font-size: 11px;
 
-    color: var(--muted);
+    color: #aaa8b6;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
 
     transition: .3s;
-
 }
-
 
 .nav-links a:hover,
 .nav-links a.active {
-
-    color: var(--primary);
-
-    text-shadow:
-        0 0 15px
-        rgba(184,140,255,.5);
-
+    color: var(--cyan);
 }
 
-
 .menu-btn {
-
     display: none;
 
-    border: none;
-
     background: none;
+    border: none;
 
     color: white;
 
-    font-size: 24px;
+    font-size: 25px;
 
     cursor: pointer;
-
 }
-
 
 /* =========================================================
    GENERAL
 ========================================================= */
 
-.container {
-
-    width:
-        min(
-            calc(100% - 40px),
-            var(--max)
-        );
-
-    margin: auto;
-
-}
-
-
 section {
-
-    padding: 125px 0;
-
+    padding: 120px 7%;
     position: relative;
-
 }
 
+.container {
+    max-width: 1250px;
+    margin: auto;
+}
 
-.section-label {
-
-    font-family:
-        "DM Mono",
-        monospace;
+.section-number {
+    color: var(--cyan);
 
     font-size: 11px;
 
     letter-spacing: 3px;
 
-    color: var(--gold);
-
     margin-bottom: 18px;
-
-    text-transform: uppercase;
-
 }
-
 
 .section-title {
+    font-family: "Space Grotesk", sans-serif;
 
-    font-family:
-        "Space Grotesk",
-        sans-serif;
+    font-size: clamp(42px, 6vw, 78px);
 
-    font-size:
-        clamp(40px, 6vw, 70px);
+    line-height: .95;
 
-    line-height: 1;
+    letter-spacing: -3px;
 
-    letter-spacing: -4px;
-
-    margin-bottom: 30px;
-
+    margin-bottom: 60px;
 }
-
 
 .section-title span {
-
-    color: transparent;
-
-    -webkit-text-stroke:
-        1px rgba(255,255,255,.45);
-
+    color: var(--purple);
 }
-
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero {
-
     min-height: 100vh;
 
     display: flex;
-
     align-items: center;
 
-    padding-top: 120px;
-
+    padding-top: 140px;
 }
 
-
-.hero-layout {
-
+.hero-grid {
     display: grid;
 
-    grid-template-columns:
-        1.2fr .8fr;
+    grid-template-columns: 1.15fr .85fr;
+
+    gap: 80px;
 
     align-items: center;
-
-    gap: 60px;
-
 }
 
-
-.hero-tag {
-
+.availability {
     display: inline-flex;
 
     align-items: center;
 
     gap: 10px;
 
-    font-family:
-        "DM Mono",
-        monospace;
+    padding: 10px 16px;
 
-    font-size: 10px;
-
-    color: var(--muted);
-
-    border:
-        1px solid var(--border);
-
-    padding:
-        10px 15px;
+    border: 1px solid rgba(70,230,255,.18);
 
     border-radius: 100px;
 
-    background:
-        rgba(255,255,255,.025);
+    color: #aaa8b6;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
 
     margin-bottom: 28px;
 
+    background: rgba(70,230,255,.025);
 }
 
-
-.status {
-
+.availability i {
     width: 7px;
-
     height: 7px;
 
-    background: #76e6a5;
+    background: #50e3a4;
 
     border-radius: 50%;
 
-    box-shadow:
-        0 0 12px #76e6a5;
-
-    animation:
-        pulse 1.7s infinite;
-
+    box-shadow: 0 0 12px #50e3a4;
 }
-
-
-@keyframes pulse {
-
-    50% {
-
-        opacity: .3;
-
-        transform: scale(.7);
-
-    }
-
-}
-
 
 .hero h1 {
+    font-family: "Space Grotesk", sans-serif;
 
-    font-family:
-        "Space Grotesk",
-        sans-serif;
+    font-size: clamp(62px, 9vw, 125px);
 
-    font-size:
-        clamp(65px, 9vw, 125px);
-
-    line-height: .87;
+    line-height: .82;
 
     letter-spacing: -7px;
 
-    margin-bottom: 32px;
-
+    margin-bottom: 35px;
 }
 
-
-.hero h1 .outline {
-
+.hero h1 .line2 {
     color: transparent;
 
-    -webkit-text-stroke:
-        1px rgba(255,255,255,.65);
+    -webkit-text-stroke: 1px rgba(255,255,255,.6);
 
+    display: block;
 }
 
+.hero h1 .gradient {
+    color: transparent;
 
-.hero h1 .primary {
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--cyan)
+    );
 
-    color: var(--primary);
+    -webkit-background-clip: text;
+    background-clip: text;
 
-    text-shadow:
-        0 0 35px
-        rgba(184,140,255,.2);
+    -webkit-text-stroke: 0;
 
+    display: block;
 }
-
 
 .hero-description {
-
     max-width: 650px;
-
-    font-size: 16px;
-
-    line-height: 1.85;
 
     color: var(--muted);
 
+    font-size: 16px;
+
+    line-height: 1.9;
+
     margin-bottom: 35px;
-
 }
-
 
 .hero-description strong {
-
-    color: var(--text);
-
-    font-weight: 500;
-
+    color: white;
 }
-
 
 .hero-buttons {
-
     display: flex;
 
+    gap: 14px;
+
     flex-wrap: wrap;
-
-    gap: 12px;
-
 }
 
-
 .btn {
+    padding: 15px 22px;
+
+    border-radius: 12px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+
+    transition: .3s;
 
     display: inline-flex;
 
     align-items: center;
 
-    justify-content: center;
-
     gap: 10px;
-
-    padding:
-        14px 22px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 4px;
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 10px;
-
-    transition: .3s;
-
-    position: relative;
-
-    overflow: hidden;
-
 }
-
 
 .btn-primary {
-
-    color: #050505;
-
-    background:
-        var(--primary);
-
-    border-color:
-        var(--primary);
-
-    font-weight: 600;
-
-}
-
-
-.btn-secondary {
-
-    background:
-        rgba(255,255,255,.025);
-
-    color: var(--text);
-
-}
-
-
-.btn:hover {
-
-    transform:
-        translateY(-4px);
+    background: linear-gradient(
+        135deg,
+        var(--purple),
+        #6842ef
+    );
 
     box-shadow:
-
-        0 10px 35px
-        rgba(184,140,255,.13);
-
+        0 10px 35px rgba(108,66,255,.25);
 }
 
+.btn-primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 45px rgba(108,66,255,.4);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.025);
+
+    color: #d7d5df;
+}
+
+.btn-outline:hover {
+    border-color: var(--cyan);
+
+    color: var(--cyan);
+
+    transform: translateY(-4px);
+}
 
 /* =========================================================
-   PROFILE VISUAL
+   PROFILE IMAGE
 ========================================================= */
 
-.hero-visual {
-
+.hero-photo {
     display: flex;
 
     justify-content: center;
 
     position: relative;
-
 }
 
+.photo-wrapper {
+    width: min(390px, 80vw);
 
-.profile-orbit {
-
-    width: 390px;
-
-    height: 390px;
+    aspect-ratio: 1/1;
 
     position: relative;
 
@@ -876,1227 +487,764 @@ section {
     align-items: center;
 
     justify-content: center;
-
 }
 
-
-.profile-orbit::before {
-
-    content: "";
-
+.photo-ring {
     position: absolute;
 
     inset: 0;
 
-    border:
-        1px solid
-        rgba(184,140,255,.3);
-
     border-radius: 50%;
 
-    animation:
-        rotateOrbit 18s linear infinite;
+    border: 1px solid rgba(155,108,255,.5);
 
+    animation: rotate 18s linear infinite;
 }
 
-
-.profile-orbit::after {
-
+.photo-ring::before {
     content: "";
 
     position: absolute;
 
-    inset: 22px;
-
-    border:
-        1px dashed
-        rgba(232,196,124,.3);
+    width: 12px;
+    height: 12px;
 
     border-radius: 50%;
 
-    animation:
-        rotateOrbit 25s linear infinite reverse;
+    background: var(--cyan);
 
+    box-shadow: 0 0 25px var(--cyan);
+
+    top: 8%;
+    right: 12%;
 }
 
+.photo-ring.two {
+    inset: 30px;
 
-@keyframes rotateOrbit {
+    border-color: rgba(70,230,255,.3);
 
-    to {
+    animation-direction: reverse;
 
-        transform:
-            rotate(360deg);
-
-    }
-
+    animation-duration: 14s;
 }
 
+.photo {
+    width: 78%;
+    height: 78%;
 
-.profile-wrap {
-
-    width: 260px;
-
-    height: 320px;
-
-    position: relative;
-
-    z-index: 3;
-
-    padding: 4px;
-
-    border-radius:
-        130px 130px 22px 22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold),
-            var(--primary),
-            #ffffff
-        );
-
-    box-shadow:
-
-        0 0 60px
-        rgba(184,140,255,.16),
-
-        0 0 100px
-        rgba(232,196,124,.06);
-
-}
-
-
-.profile-wrap img {
-
-    width: 100%;
-
-    height: 100%;
+    border-radius: 50%;
 
     object-fit: cover;
 
-    object-position:
-        center top;
+    object-position: center top;
 
-    border-radius:
-        126px 126px 18px 18px;
+    border: 8px solid rgba(255,255,255,.05);
 
+    box-shadow:
+        0 0 0 1px rgba(155,108,255,.35),
+        0 30px 80px rgba(0,0,0,.6);
 }
 
-
-.orbit-dot {
-
+.photo-label {
     position: absolute;
 
-    width: 10px;
+    bottom: 8%;
 
-    height: 10px;
+    right: 0;
 
-    border-radius: 50%;
+    padding: 13px 18px;
 
-    z-index: 5;
+    background: rgba(12,11,20,.85);
 
-}
+    backdrop-filter: blur(15px);
 
+    border: 1px solid var(--border);
 
-.dot1 {
-
-    top: 35px;
-
-    left: 65px;
-
-    background: var(--primary);
-
-    box-shadow:
-        0 0 20px
-        var(--primary);
-
-}
-
-
-.dot2 {
-
-    right: 35px;
-
-    top: 150px;
-
-    background: var(--gold);
-
-    box-shadow:
-        0 0 20px
-        var(--gold);
-
-}
-
-
-.dot3 {
-
-    bottom: 45px;
-
-    left: 75px;
-
-    background: var(--primary-light);
-
-    box-shadow:
-        0 0 20px
-        var(--primary-light);
-
-}
-
-
-/* =========================================================
-   FLOAT LABELS
-========================================================= */
-
-.float-label {
-
-    position: absolute;
-
-    padding:
-        10px 14px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(8,8,10,.85);
-
-    backdrop-filter:
-        blur(15px);
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 9px;
-
-    color: var(--muted);
-
-    z-index: 10;
-
-    animation:
-        float 4s ease-in-out infinite;
-
-}
-
-
-.label-ai {
-
-    top: 40px;
-
-    right: -5px;
-
-    color: var(--primary-light);
-
-}
-
-
-.label-engineer {
-
-    bottom: 45px;
-
-    left: -25px;
-
-    color: var(--gold);
-
-    animation-delay:
-        1.5s;
-
-}
-
-
-@keyframes float {
-
-    50% {
-
-        transform:
-            translateY(-12px);
-
-    }
-
-}
-
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee {
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    padding:
-        18px 0;
-
-    border-top:
-        1px solid var(--border);
-
-    border-bottom:
-        1px solid var(--border);
-
-    background:
-        rgba(255,255,255,.015);
-
-}
-
-
-.marquee-track {
-
-    display: inline-block;
-
-    animation:
-        marquee 28s linear infinite;
-
-}
-
-
-.marquee span {
-
-    margin:
-        0 30px;
-
-    font-family:
-        "DM Mono",
-        monospace;
+    border-radius: 12px;
 
     font-size: 10px;
 
-    color: var(--muted);
+    color: var(--cyan);
 
+    letter-spacing: 1px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.3);
 }
-
-
-.marquee b {
-
-    color: var(--gold);
-
-}
-
-
-@keyframes marquee {
-
-    to {
-
-        transform:
-            translateX(-50%);
-
-    }
-
-}
-
 
 /* =========================================================
    ABOUT
 ========================================================= */
 
 .about-grid {
-
     display: grid;
 
-    grid-template-columns:
-        .8fr 1.2fr;
+    grid-template-columns: .8fr 1.2fr;
 
-    gap: 75px;
-
+    gap: 100px;
 }
 
-
-.about-intro {
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(27px, 3vw, 40px);
-
-    line-height: 1.2;
-
-    letter-spacing: -1px;
-
-}
-
-
-.about-intro span {
-
-    color: var(--primary);
-
-}
-
-
-.about-text {
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.9;
-
-}
-
-
-.about-text p {
-
-    margin-bottom: 18px;
-
-}
-
-
-.stats {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 10px;
-
-    margin-top: 35px;
-
-}
-
-
-.stat {
-
-    padding: 22px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(255,255,255,.02);
-
-}
-
-
-.stat-number {
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
+.about-big {
+    font-family: "Space Grotesk";
 
     font-size: 32px;
 
-    font-weight: 700;
+    line-height: 1.35;
 
-    color: var(--primary);
-
+    letter-spacing: -1px;
 }
 
+.about-big span {
+    color: var(--purple);
+}
 
-.stat-label {
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 9px;
-
+.about-text {
     color: var(--muted);
 
-    margin-top: 5px;
+    line-height: 1.9;
 
+    font-size: 15px;
 }
 
+.about-text p {
+    margin-bottom: 22px;
+}
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.stat {
+    padding: 22px;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    border-radius: 18px;
+}
+
+.stat strong {
+    font-family: "Space Grotesk";
+
+    font-size: 28px;
+
+    display: block;
+
+    color: white;
+}
+
+.stat small {
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
 
 /* =========================================================
    EDUCATION
 ========================================================= */
 
-.timeline {
+.education-list {
+    display: grid;
 
-    position: relative;
-
-    margin-top: 55px;
-
+    gap: 18px;
 }
 
+.edu-card {
+    display: grid;
 
-.timeline::before {
+    grid-template-columns: 160px 1fr auto;
 
-    content: "";
+    gap: 30px;
 
-    position: absolute;
+    padding: 30px;
 
-    left: 14px;
+    border: 1px solid var(--border);
 
-    top: 0;
+    background: var(--card);
 
-    bottom: 0;
+    border-radius: var(--radius);
 
-    width: 1px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            var(--primary),
-            transparent
-        );
-
+    transition: .4s;
 }
 
+.edu-card:hover {
+    transform: translateX(8px);
 
-.timeline-item {
+    border-color: rgba(155,108,255,.45);
 
-    position: relative;
-
-    padding-left: 60px;
-
-    margin-bottom: 55px;
-
+    background: rgba(155,108,255,.05);
 }
 
+.edu-year {
+    color: var(--cyan);
 
-.timeline-dot {
+    font-size: 12px;
 
-    position: absolute;
-
-    left: 9px;
-
-    top: 4px;
-
-    width: 11px;
-
-    height: 11px;
-
-    border-radius: 50%;
-
-    background:
-        var(--primary);
-
-    box-shadow:
-        0 0 20px
-        var(--primary);
-
+    letter-spacing: 1px;
 }
 
+.edu-card h3 {
+    font-family: "Space Grotesk";
 
-.timeline-date {
+    font-size: 22px;
 
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 10px;
-
-    color: var(--gold);
-
-    margin-bottom: 9px;
-
+    margin-bottom: 8px;
 }
 
-
-.timeline-item h3 {
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size: 27px;
-
-    margin-bottom: 5px;
-
-}
-
-
-.timeline-item h4 {
-
+.edu-card p {
     color: var(--muted);
 
     font-size: 14px;
-
-    font-weight: 400;
-
-    margin-bottom: 12px;
-
 }
 
+.edu-badge {
+    align-self: start;
 
-.timeline-item p {
+    padding: 8px 12px;
 
-    color: var(--muted);
+    border: 1px solid rgba(70,230,255,.2);
 
-    line-height: 1.7;
+    color: var(--cyan);
 
-    font-size: 14px;
+    border-radius: 100px;
 
-    max-width: 750px;
+    font-size: 9px;
 
+    letter-spacing: 1px;
 }
-
 
 /* =========================================================
    EXPERIENCE
 ========================================================= */
 
-.experience-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 14px;
-
-    margin-top: 50px;
-
-}
-
-
-.experience-card {
-
-    padding: 30px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.035),
-            rgba(255,255,255,.008)
-        );
-
-    transition: .4s;
-
+.timeline {
     position: relative;
 
-    overflow: hidden;
+    max-width: 1000px;
 
+    margin: auto;
 }
 
+.timeline::before {
+    content: "";
 
-.experience-card:hover {
+    position: absolute;
 
-    transform:
-        translateY(-7px);
+    left: 15px;
 
-    border-color:
-        rgba(184,140,255,.4);
+    top: 0;
+    bottom: 0;
 
-    box-shadow:
-        0 15px 45px
-        rgba(184,140,255,.07);
+    width: 1px;
 
+    background: linear-gradient(
+        to bottom,
+        var(--purple),
+        transparent
+    );
 }
 
+.timeline-item {
+    position: relative;
 
-.exp-year {
+    padding-left: 65px;
 
-    font-family:
-        "DM Mono",
-        monospace;
-
-    color: var(--gold);
-
-    font-size: 10px;
-
-    margin-bottom: 20px;
-
+    margin-bottom: 55px;
 }
 
+.timeline-dot {
+    position: absolute;
 
-.experience-card h3 {
+    left: 8px;
+    top: 8px;
 
-    font-size: 21px;
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: var(--bg);
+
+    border: 2px solid var(--cyan);
+
+    box-shadow: 0 0 18px rgba(70,230,255,.5);
+}
+
+.timeline-date {
+    color: var(--purple);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.timeline-item h3 {
+    font-family: "Space Grotesk";
+
+    font-size: 24px;
 
     margin-bottom: 6px;
-
 }
 
-
-.exp-company {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-bottom: 18px;
-
-}
-
-
-.experience-card p {
-
+.timeline-item h4 {
     color: var(--muted);
 
     font-size: 13px;
 
-    line-height: 1.7;
+    font-weight: 400;
 
+    margin-bottom: 14px;
 }
 
+.timeline-item p {
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    max-width: 700px;
+}
 
 /* =========================================================
    PROJECTS
 ========================================================= */
 
-.projects-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: end;
-
-    gap: 30px;
-
-    margin-bottom: 45px;
-
-}
-
-
-.project-filters {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 6px;
-
-}
-
-
-.filter {
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(255,255,255,.025);
-
-    color: var(--muted);
-
-    padding:
-        8px 12px;
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 9px;
-
-    cursor: pointer;
-
-    transition: .3s;
-
-}
-
-
-.filter:hover,
-.filter.active {
-
-    background:
-        var(--primary);
-
-    color: #050505;
-
-    border-color:
-        var(--primary);
-
-}
-
-
 .projects-grid {
-
     display: grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns: repeat(2,1fr);
 
-    gap: 18px;
-
+    gap: 22px;
 }
 
-
 .project-card {
+    min-height: 360px;
 
-    min-height: 390px;
-
-    padding: 30px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.008)
-        );
+    padding: 35px;
 
     position: relative;
 
     overflow: hidden;
 
-    transform-style:
-        preserve-3d;
+    border: 1px solid var(--border);
 
-    transition:
-        border .3s ease;
+    border-radius: var(--radius);
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(155,108,255,.08),
+            rgba(255,255,255,.02)
+        );
+
+    transition: .45s;
 }
-
 
 .project-card:hover {
+    transform: translateY(-10px);
 
-    border-color:
-        rgba(184,140,255,.45);
+    border-color: rgba(155,108,255,.5);
 
     box-shadow:
-
-        0 20px 60px
-        rgba(184,140,255,.07);
-
+        0 30px 70px rgba(0,0,0,.35);
 }
-
 
 .project-number {
+    color: var(--cyan);
 
-    font-family:
-        "DM Mono",
-        monospace;
+    font-family: "Space Grotesk";
 
-    color: var(--gold);
+    font-size: 12px;
 
-    font-size: 10px;
+    letter-spacing: 2px;
 
-    margin-bottom: 60px;
-
+    margin-bottom: 70px;
 }
-
-
-.project-icon {
-
-    position: absolute;
-
-    top: 24px;
-
-    right: 25px;
-
-    font-size: 35px;
-
-    color: var(--primary);
-
-    opacity: .7;
-
-}
-
 
 .project-card h3 {
+    font-family: "Space Grotesk";
 
-    font-family:
-        "Space Grotesk",
-        sans-serif;
+    font-size: 28px;
 
-    font-size: 29px;
+    line-height: 1.1;
 
-    line-height: 1.05;
-
-    margin-bottom: 18px;
-
-    transform:
-        translateZ(25px);
-
+    margin-bottom: 20px;
 }
 
-
 .project-card p {
-
     color: var(--muted);
-
-    font-size: 13px;
 
     line-height: 1.8;
 
-    margin-bottom: 25px;
-
-    max-width: 550px;
-
+    font-size: 14px;
 }
 
+.project-tags {
+    position: absolute;
 
-.tech-stack {
+    bottom: 30px;
+
+    left: 35px;
+
+    right: 35px;
 
     display: flex;
 
+    gap: 8px;
+
     flex-wrap: wrap;
-
-    gap: 7px;
-
 }
 
+.project-tags span {
+    padding: 7px 10px;
 
-.tech {
+    background: rgba(255,255,255,.05);
 
-    font-family:
-        "DM Mono",
-        monospace;
+    border: 1px solid var(--border);
 
-    font-size: 8px;
+    border-radius: 100px;
 
-    color: var(--muted);
+    font-size: 9px;
 
-    padding:
-        6px 9px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(0,0,0,.25);
-
+    color: #bbb8c8;
 }
-
-
-.project-glow {
-
-    position: absolute;
-
-    width: 280px;
-
-    height: 280px;
-
-    right: -130px;
-
-    bottom: -130px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(184,140,255,.13),
-            transparent 65%
-        );
-
-    transition: .5s;
-
-}
-
-
-.project-card:hover
-.project-glow {
-
-    transform:
-        scale(1.5);
-
-}
-
 
 /* =========================================================
    SKILLS
 ========================================================= */
 
-.skills-layout {
-
+.skills-grid {
     display: grid;
 
-    grid-template-columns:
-        .7fr 1.3fr;
+    grid-template-columns: repeat(2,1fr);
 
-    gap: 75px;
-
+    gap: 20px;
 }
 
+.skill-card {
+    padding: 30px;
 
-.skill-category {
+    border: 1px solid var(--border);
 
-    margin-bottom: 27px;
+    background: var(--card);
 
+    border-radius: var(--radius);
 }
 
+.skill-card h3 {
+    font-family: "Space Grotesk";
 
-.skill-category h3 {
+    margin-bottom: 25px;
 
-    font-family:
-        "DM Mono",
-        monospace;
-
-    color: var(--gold);
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 12px;
-
-    text-transform: uppercase;
-
+    font-size: 20px;
 }
 
+.skill {
+    margin-bottom: 18px;
+}
 
-.skill-cloud {
+.skill-top {
+    display: flex;
 
+    justify-content: space-between;
+
+    font-size: 12px;
+
+    color: #c9c7d2;
+
+    margin-bottom: 8px;
+}
+
+.skill-top span:last-child {
+    color: var(--cyan);
+}
+
+.skill-bar {
+    height: 4px;
+
+    background: rgba(255,255,255,.07);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+
+    width: 0;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--cyan)
+    );
+
+    transition: width 1.5s cubic-bezier(.16,1,.3,1);
+}
+
+/* =========================================================
+   WORKSHOPS
+========================================================= */
+
+.workshops {
     display: flex;
 
     flex-wrap: wrap;
 
-    gap: 8px;
-
+    gap: 10px;
 }
 
+.workshop {
+    padding: 13px 17px;
 
-.skill-pill {
+    border: 1px solid var(--border);
 
-    padding:
-        11px 14px;
+    background: rgba(255,255,255,.025);
 
-    border:
-        1px solid var(--border);
+    border-radius: 100px;
 
-    background:
-        rgba(255,255,255,.025);
+    font-size: 11px;
 
-    color: var(--muted);
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 9px;
+    color: #bdbbc7;
 
     transition: .3s;
-
 }
 
+.workshop:hover {
+    color: var(--cyan);
 
-.skill-pill:hover {
+    border-color: var(--cyan);
 
-    color: var(--primary-light);
-
-    border-color:
-        rgba(184,140,255,.45);
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 8px 25px
-        rgba(184,140,255,.07);
-
+    transform: translateY(-3px);
 }
-
 
 /* =========================================================
    ACHIEVEMENTS
 ========================================================= */
 
 .achievement-grid {
-
     display: grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns: repeat(4,1fr);
 
-    gap: 12px;
-
-    margin-top: 45px;
-
+    gap: 15px;
 }
-
 
 .achievement {
+    padding: 25px;
 
-    min-height: 180px;
+    min-height: 170px;
 
-    padding: 22px;
+    border: 1px solid var(--border);
 
-    border:
-        1px solid var(--border);
+    border-radius: 20px;
 
-    background:
-        rgba(255,255,255,.02);
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
+    background: var(--card);
 
     transition: .35s;
-
 }
-
 
 .achievement:hover {
+    transform: translateY(-6px);
 
-    transform:
-        translateY(-7px);
-
-    border-color:
-        rgba(232,196,124,.45);
-
+    border-color: rgba(70,230,255,.35);
 }
-
 
 .achievement-icon {
+    font-size: 25px;
 
-    font-size: 23px;
-
-    color: var(--gold);
-
+    margin-bottom: 25px;
 }
 
-
-.achievement h3 {
-
+.achievement h4 {
     font-size: 13px;
 
     line-height: 1.5;
-
 }
-
 
 .achievement p {
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 8px;
-
     color: var(--muted);
 
-}
+    font-size: 10px;
 
+    margin-top: 8px;
+
+    line-height: 1.5;
+}
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
-.contact-box {
-
-    padding: 70px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(184,140,255,.08),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 15% 90%,
-            rgba(232,196,124,.05),
-            transparent 30%
-        ),
-
-        rgba(255,255,255,.018);
-
-    position: relative;
-
-    overflow: hidden;
-
+.contact-section {
+    min-height: 90vh;
 }
 
+.contact-grid {
+    display: grid;
 
-.contact-box h2 {
+    grid-template-columns: .9fr 1.1fr;
 
-    font-family:
-        "Space Grotesk",
-        sans-serif;
+    gap: 100px;
 
-    font-size:
-        clamp(45px, 7vw, 85px);
+    align-items: start;
+}
 
-    line-height: .93;
+.contact-heading {
+    font-family: "Space Grotesk";
+
+    font-size: clamp(50px,7vw,100px);
+
+    line-height: .88;
 
     letter-spacing: -5px;
-
-    max-width: 850px;
-
-    margin-bottom: 25px;
-
 }
 
-
-.contact-box h2 span {
-
-    color: var(--primary);
-
+.contact-heading span {
+    display: block;
 }
 
+.contact-heading .gradient {
+    color: transparent;
+
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--cyan)
+    );
+
+    -webkit-background-clip: text;
+}
 
 .contact-description {
-
-    max-width: 620px;
-
     color: var(--muted);
-
-    font-size: 14px;
 
     line-height: 1.8;
 
+    font-size: 14px;
+
+    margin-top: 35px;
+
+    max-width: 420px;
 }
 
-
-/* CONTACT INFORMATION */
-
-.contact-info {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 10px;
-
-    max-width: 900px;
-
-    margin:
-        35px 0;
-
+.contact-details {
+    border-top: 1px solid var(--border);
 }
-
 
 .contact-item {
+    display: grid;
 
-    display: flex;
+    grid-template-columns: 100px 1fr 25px;
 
     align-items: center;
 
-    gap: 16px;
+    padding: 25px 0;
 
-    padding: 19px;
+    border-bottom: 1px solid var(--border);
 
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(255,255,255,.025);
-
-    transition: .35s;
-
+    transition: .3s;
 }
-
 
 .contact-item:hover {
+    padding-left: 12px;
 
-    transform:
-        translateX(6px);
-
-    border-color:
-        rgba(184,140,255,.4);
-
-    background:
-        rgba(184,140,255,.035);
-
+    border-color: var(--purple);
 }
 
+.contact-label {
+    font-size: 9px;
 
-.contact-icon {
+    color: #777584;
 
-    width: 42px;
+    letter-spacing: 2px;
+}
 
-    height: 42px;
+.contact-value {
+    color: #e6e4ec;
 
-    min-width: 42px;
+    font-size: 14px;
+
+    word-break: break-word;
+}
+
+.contact-arrow {
+    color: var(--cyan);
+
+    transition: .3s;
+}
+
+.contact-item:hover .contact-arrow {
+    transform: translate(4px,-4px);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 30px 7%;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #686674;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader {
+    position: fixed;
+
+    inset: 0;
+
+    background: var(--bg);
+
+    z-index: 99999;
 
     display: flex;
 
@@ -2104,791 +1252,399 @@ section {
 
     justify-content: center;
 
-    border:
-        1px solid
-        rgba(184,140,255,.3);
-
-    color: var(--primary);
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 13px;
-
+    transition: opacity .7s, visibility .7s;
 }
 
-
-.contact-label {
-
-    display: block;
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    color: var(--gold);
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 5px;
-
-}
-
-
-.contact-item strong {
-
-    display: block;
-
-    font-size: 12px;
-
-    font-weight: 500;
-
-    color: var(--text);
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    margin-top: 80px;
-
-    padding: 35px 0;
-
-    border-top:
-        1px solid var(--border);
-
-}
-
-
-.footer-inner {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 9px;
-
-    color: var(--muted);
-
-}
-
-
-.footer-inner span:first-child {
-
-    color: var(--primary);
-
-}
-
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.reveal {
-
+.loader.hide {
     opacity: 0;
 
-    transform:
-        translateY(35px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-
+    visibility: hidden;
 }
 
+.loader-text {
+    font-family: "Space Grotesk";
 
-.reveal.show {
+    font-size: 20px;
 
-    opacity: 1;
+    letter-spacing: 5px;
 
-    transform:
-        translateY(0);
+    color: white;
 
+    animation: pulse 1.2s infinite;
 }
-
 
 /* =========================================================
-   RESPONSIVE
+   ANIMATIONS
 ========================================================= */
 
-@media(max-width: 950px) {
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
 
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%,100% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 900px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
 
     .nav-links {
+        position: absolute;
 
-        position: fixed;
-
-        top: 70px;
-
-        left: 15px;
-
-        right: 15px;
+        top: 82px;
+        left: 0;
+        right: 0;
 
         display: none;
 
         flex-direction: column;
-
-        gap: 20px;
 
         padding: 25px;
 
-        background:
-            rgba(5,5,5,.96);
+        background: rgba(7,7,13,.97);
 
-        border:
-            1px solid var(--border);
-
-        backdrop-filter:
-            blur(20px);
-
+        border-bottom: 1px solid var(--border);
     }
-
 
     .nav-links.open {
-
         display: flex;
-
     }
 
-
-    .menu-btn {
-
-        display: block;
-
-    }
-
-
-    .hero-layout {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .hero-visual {
-
-        order: -1;
-
-    }
-
-
+    .hero-grid,
     .about-grid,
-    .skills-layout {
-
+    .contact-grid {
         grid-template-columns: 1fr;
 
+        gap: 60px;
     }
 
+    .hero {
+        padding-top: 130px;
+    }
 
-    .experience-grid,
-    .projects-grid {
+    .hero-photo {
+        order: -1;
+    }
 
+    .photo-wrapper {
+        width: 300px;
+    }
+
+    .projects-grid,
+    .skills-grid {
         grid-template-columns: 1fr;
-
     }
-
 
     .achievement-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns: repeat(2,1fr);
     }
 
+    .edu-card {
+        grid-template-columns: 1fr;
 
-    .projects-header {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
+        gap: 12px;
     }
 
+    .edu-badge {
+        justify-self: start;
+    }
 }
 
-
-@media(max-width: 650px) {
-
+@media(max-width: 600px) {
 
     section {
-
-        padding:
-            85px 0;
-
+        padding: 90px 6%;
     }
-
-
-    .container {
-
-        width:
-            calc(100% - 28px);
-
-    }
-
-
-    .nav-inner {
-
-        width:
-            calc(100% - 28px);
-
-    }
-
 
     .hero h1 {
+        font-size: 65px;
 
-        font-size:
-            clamp(
-                58px,
-                17vw,
-                85px
-            );
-
-        letter-spacing: -5px;
-
+        letter-spacing: -4px;
     }
 
+    .section-title {
+        font-size: 50px;
 
-    .profile-orbit {
-
-        width: 300px;
-
-        height: 300px;
-
+        letter-spacing: -2px;
     }
-
-
-    .profile-wrap {
-
-        width: 210px;
-
-        height: 265px;
-
-    }
-
-
-    .float-label {
-
-        display: none;
-
-    }
-
 
     .stats {
-
         grid-template-columns: 1fr;
-
     }
-
 
     .achievement-grid {
-
         grid-template-columns: 1fr;
-
     }
 
-
-    .contact-box {
-
-        padding:
-            40px 22px;
-
+    .contact-item {
+        grid-template-columns: 75px 1fr 20px;
     }
 
-
-    .contact-info {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .contact-box h2 {
-
-        letter-spacing: -3px;
-
-    }
-
-
-    .footer-inner {
-
+    footer {
         flex-direction: column;
 
+        gap: 10px;
     }
-
 
     .cursor,
-    .cursor-ring {
-
+    .cursor-dot {
         display: none;
-
     }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ======================================================
+<!-- =====================================================
      LOADER
-====================================================== -->
+===================================================== -->
 
-<div class="loader">
+<div class="loader" id="loader">
+    <div class="loader-text">AVP / 01</div>
+</div>
 
-    <div class="loader-inner">
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-        <div class="loader-logo">
-            AMBAREESH V P
+<div class="background-grid"></div>
+
+<div class="glow" id="glow"></div>
+
+<canvas id="particles"></canvas>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <a href="#home" class="logo">
+        AMBAREESH<span>.</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="#home" class="active">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#education">Education</a>
+        </li>
+
+        <li>
+            <a href="#experience">Experience</a>
+        </li>
+
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+    <div class="hero-content reveal">
+
+        <div class="availability">
+            <i></i>
+            AVAILABLE FOR OPPORTUNITIES
         </div>
 
-        <div class="loader-line"></div>
+        <h1>
+
+            AMBAREESH
+
+            <span class="line2">
+                V P
+            </span>
+
+            <span class="gradient">
+                ENGINEER.
+            </span>
+
+        </h1>
+
+        <p class="hero-description">
+
+            Mechanical Engineering graduate exploring the intersection of
+            <strong>Artificial Intelligence</strong>,
+            <strong>Machine Learning</strong>,
+            <strong>Data Science</strong> and
+            <strong>Engineering</strong>.
+
+            <br><br>
+
+            I combine engineering problem-solving,
+            numerical analysis and computational thinking
+            to build practical solutions.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                EXPLORE MY WORK →
+            </a>
+
+            <a href="MY_RESUME.pdf"
+               target="_blank"
+               class="btn btn-outline">
+                VIEW RESUME ↓
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-photo reveal">
+
+        <div class="photo-wrapper">
+
+            <div class="photo-ring"></div>
+
+            <div class="photo-ring two"></div>
+
+            <img
+                src="profile.jpg"
+                alt="Ambareesh V P"
+                class="photo"
+            >
+
+            <div class="photo-label">
+                MECHANICAL × AI/ML
+            </div>
+
+        </div>
 
     </div>
 
 </div>
-
-
-<!-- ======================================================
-     BACKGROUND
-====================================================== -->
-
-<canvas id="network"></canvas>
-
-<div class="grid-bg"></div>
-
-<div class="noise"></div>
-
-
-<!-- ======================================================
-     CURSOR
-====================================================== -->
-
-<div class="cursor"></div>
-
-<div class="cursor-ring"></div>
-
-
-<!-- ======================================================
-     NAVIGATION
-====================================================== -->
-
-<header class="nav">
-
-    <div class="nav-inner">
-
-
-        <a href="#home"
-           class="logo">
-
-            AMBAREESH V P
-
-        </a>
-
-
-        <button
-            class="menu-btn"
-            aria-label="Open navigation">
-
-            ☰
-
-        </button>
-
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="#home">
-                    HOME
-                </a>
-            </li>
-
-            <li>
-                <a href="#about">
-                    ABOUT
-                </a>
-            </li>
-
-            <li>
-                <a href="#education">
-                    EDUCATION
-                </a>
-            </li>
-
-            <li>
-                <a href="#experience">
-                    EXPERIENCE
-                </a>
-            </li>
-
-            <li>
-                <a href="#projects">
-                    PROJECTS
-                </a>
-            </li>
-
-            <li>
-                <a href="#skills">
-                    SKILLS
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    CONTACT
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
-
-</header>
-
-
-<!-- ======================================================
-     MAIN
-====================================================== -->
-
-<main>
-
-
-<!-- ======================================================
-     HOME
-====================================================== -->
-
-<section
-    class="hero"
-    id="home">
-
-    <div class="container">
-
-        <div class="hero-layout">
-
-
-            <div class="hero-content reveal">
-
-
-                <div class="hero-tag">
-
-                    <span class="status"></span>
-
-                    AVAILABLE FOR OPPORTUNITIES
-
-                </div>
-
-
-                <h1>
-
-                    AMBAREESH
-
-                    <br>
-
-                    <span class="outline">
-                        V
-                    </span><span class="primary">
-                        P
-                    </span>
-
-                </h1>
-
-
-                <p class="hero-description">
-
-                    Mechanical Engineering graduate
-                    building a future at the intersection of
-
-                    <strong>
-                        Artificial Intelligence
-                    </strong>,
-
-                    <strong>
-                        Machine Learning
-                    </strong>,
-
-                    <strong>
-                        Data Science
-                    </strong>
-
-                    and
-
-                    <strong>
-                        Engineering
-                    </strong>.
-
-                    <br><br>
-
-                    I combine engineering problem-solving,
-                    numerical analysis and computational
-                    thinking to build practical solutions.
-
-                </p>
-
-
-                <div class="hero-buttons">
-
-
-                    <a href="#projects"
-                       class="btn btn-primary magnetic">
-
-                        EXPLORE MY WORK
-
-                        <span>↗</span>
-
-                    </a>
-
-
-                    <a href="MY_RESUME.pdf"
-                       target="_blank"
-                       class="btn btn-secondary magnetic">
-
-                        VIEW RESUME
-
-                        <span>↓</span>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
-
-            <!-- PROFILE -->
-
-            <div class="hero-visual reveal">
-
-
-                <div class="profile-orbit">
-
-
-                    <div class="orbit-dot dot1"></div>
-
-                    <div class="orbit-dot dot2"></div>
-
-                    <div class="orbit-dot dot3"></div>
-
-
-                    <div class="profile-wrap">
-
-                        <img
-                            src="PROFILE PICTURE.png"
-                            alt="Ambareesh V P">
-
-                    </div>
-
-
-                    <div class="float-label label-ai">
-
-                        AI / ML
-
-                    </div>
-
-
-                    <div class="float-label label-engineer">
-
-                        MECHANICAL ENGINEERING
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
 
 </section>
 
 
-<!-- ======================================================
-     MARQUEE
-====================================================== -->
-
-<div class="marquee">
-
-    <div class="marquee-track">
-
-
-        <span>PYTHON</span>
-        <b>✦</b>
-
-        <span>MACHINE LEARNING</span>
-        <b>✦</b>
-
-        <span>DATA SCIENCE</span>
-        <b>✦</b>
-
-        <span>DEEP LEARNING</span>
-        <b>✦</b>
-
-        <span>ENGINEERING</span>
-        <b>✦</b>
-
-        <span>NUMERICAL ANALYSIS</span>
-        <b>✦</b>
-
-        <span>OPTIMIZATION</span>
-        <b>✦</b>
-
-        <span>PYTHON</span>
-        <b>✦</b>
-
-        <span>MACHINE LEARNING</span>
-        <b>✦</b>
-
-        <span>DATA SCIENCE</span>
-        <b>✦</b>
-
-        <span>DEEP LEARNING</span>
-        <b>✦</b>
-
-        <span>ENGINEERING</span>
-        <b>✦</b>
-
-        <span>NUMERICAL ANALYSIS</span>
-        <b>✦</b>
-
-
-    </div>
-
-</div>
-
-
-<!-- ======================================================
+<!-- =====================================================
      ABOUT
-====================================================== -->
+===================================================== -->
 
 <section id="about">
 
-    <div class="container">
+<div class="container">
 
+    <div class="section-number">
+        01 / ABOUT
+    </div>
 
-        <div class="section-label reveal">
-            ABOUT
+    <h2 class="section-title reveal">
+        ENGINEERING
+        <span>MEETS</span>
+        INTELLIGENCE.
+    </h2>
+
+    <div class="about-grid">
+
+        <div class="about-big reveal">
+
+            Mechanical Engineer
+            building a foundation in
+            <span>AI, ML & Data Science.</span>
+
         </div>
 
 
-        <div class="about-grid">
+        <div class="about-text reveal">
 
+            <p>
+                I am a Mechanical Engineering graduate from
+                College of Engineering Trivandrum (CET), with
+                strong analytical, numerical and technical
+                problem-solving skills.
+            </p>
 
-            <div class="about-intro reveal">
+            <p>
+                My current focus is developing expertise in
+                Artificial Intelligence, Machine Learning and
+                Data Science through Python-based data analysis,
+                deep learning and computational projects.
+            </p>
 
-                ENGINEERING
+            <p>
+                My engineering background gives me a practical
+                approach to optimization, numerical investigation
+                and technical problem solving.
+            </p>
 
-                <span>
-                    THINKING.
-                </span>
+            <div class="stats">
 
-                <br>
+                <div class="stat">
+                    <strong>2025</strong>
+                    <small>GRADUATE</small>
+                </div>
 
-                INTELLIGENT
+                <div class="stat">
+                    <strong>AI/ML</strong>
+                    <small>FOCUS</small>
+                </div>
 
-                <span>
-                    SOLUTIONS.
-                </span>
-
-            </div>
-
-
-            <div class="about-text reveal">
-
-
-                <p>
-
-                    I am a Mechanical Engineering graduate
-                    from the College of Engineering Trivandrum
-                    with strong analytical, numerical and
-                    technical problem-solving skills.
-
-                </p>
-
-
-                <p>
-
-                    My current focus is Artificial Intelligence,
-                    Machine Learning and Data Science, where
-                    I combine engineering fundamentals with
-                    computational methods.
-
-                </p>
-
-
-                <p>
-
-                    I enjoy working with Python, data analysis,
-                    deep learning, numerical analysis and
-                    optimization to understand problems,
-                    develop solutions and interpret results.
-
-                </p>
-
-
-                <div class="stats">
-
-
-                    <div class="stat">
-
-                        <div class="stat-number"
-                             data-count="2">
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            MAJOR PROJECTS
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <div class="stat-number"
-                             data-count="4">
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            WORKSHOPS
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <div class="stat-number"
-                             data-count="2025">
-                            0
-                        </div>
-
-                        <div class="stat-label">
-                            GRADUATION
-                        </div>
-
-                    </div>
-
-
+                <div class="stat">
+                    <strong>2+</strong>
+                    <small>MAJOR PROJECTS</small>
                 </div>
 
             </div>
@@ -2897,661 +1653,581 @@ footer {
 
     </div>
 
+</div>
+
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      EDUCATION
-====================================================== -->
+===================================================== -->
 
 <section id="education">
 
-    <div class="container">
+<div class="container">
 
+    <div class="section-number">
+        02 / EDUCATION
+    </div>
 
-        <div class="section-label reveal">
-            EDUCATION
-        </div>
+    <h2 class="section-title reveal">
+        THE <span>FOUNDATION.</span>
+    </h2>
 
+    <div class="education-list">
 
-        <h2 class="section-title reveal">
+        <div class="edu-card reveal">
 
-            THE
+            <div class="edu-year">
+                2021 — MAY 2025
+            </div>
 
-            <span>
-                FOUNDATION
-            </span>
-
-        </h2>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-date">
-                    2021 — MAY 2025
-                </div>
-
+            <div>
                 <h3>
                     Bachelor of Engineering
                 </h3>
 
-                <h4>
-                    Mechanical Engineering ·
-                    College of Engineering Trivandrum
-                </h4>
-
                 <p>
-
-                    Developed a strong foundation in
-                    engineering analysis, numerical methods,
-                    optimization and technical problem solving.
-
+                    Mechanical Engineering
                 </p>
 
+                <p>
+                    College of Engineering Trivandrum (CET), Kerala
+                </p>
             </div>
 
+            <div class="edu-badge">
+                GRADUATE
+            </div>
 
-            <div class="timeline-item reveal">
+        </div>
 
-                <div class="timeline-dot"></div>
 
-                <div class="timeline-date">
-                    2019 — 2021
-                </div>
+        <div class="edu-card reveal">
+
+            <div class="edu-year">
+                2019 — 2021
+            </div>
+
+            <div>
 
                 <h3>
                     Higher Secondary Education
                 </h3>
 
-                <h4>
-                    St. George HSS, Thodupuzha
-                </h4>
+                <p>
+                    Classes 11 & 12
+                </p>
 
                 <p>
-                    Classes 11 and 12.
+                    St. George HSS, Thodupuzha, Kerala
                 </p>
 
             </div>
 
+            <div class="edu-badge">
+                SCHOOL
+            </div>
 
-            <div class="timeline-item reveal">
+        </div>
 
-                <div class="timeline-dot"></div>
 
-                <div class="timeline-date">
-                    2010 — 2019
-                </div>
+        <div class="edu-card reveal">
+
+            <div class="edu-year">
+                2010 — 2019
+            </div>
+
+            <div>
 
                 <h3>
                     School Education
                 </h3>
 
-                <h4>
-                    Kendriya Vidyalaya Idukki
-                </h4>
-
                 <p>
-                    Kerala, India.
+                    Kendriya Vidyalaya Idukki, Kerala
                 </p>
 
             </div>
 
+            <div class="edu-badge">
+                SCHOOL
+            </div>
 
         </div>
 
     </div>
 
+</div>
+
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      EXPERIENCE
-====================================================== -->
+===================================================== -->
 
 <section id="experience">
 
-    <div class="container">
+<div class="container">
+
+    <div class="section-number">
+        03 / EXPERIENCE
+    </div>
+
+    <h2 class="section-title reveal">
+        LEADERSHIP &
+        <span>EXPERIENCE.</span>
+    </h2>
 
 
-        <div class="section-label reveal">
-            EXPERIENCE
+    <div class="timeline">
+
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2025
+            </div>
+
+            <h3>
+                Hospitality Head
+            </h3>
+
+            <h4>
+                Override 2025 — Mechanical Department Fest,
+                College of Engineering Trivandrum
+            </h4>
+
+            <p>
+                Led hospitality operations, coordinated guest
+                reception and participant support, and worked
+                with multiple committees to ensure smooth
+                event execution.
+            </p>
+
         </div>
 
 
-        <h2 class="section-title reveal">
+        <div class="timeline-item reveal">
 
-            LEADERSHIP &
+            <div class="timeline-dot"></div>
 
-            <span>
-                EXPERIENCE
-            </span>
-
-        </h2>
-
-
-        <div class="experience-grid">
-
-
-            <div class="experience-card reveal">
-
-                <div class="exp-year">
-                    2025
-                </div>
-
-                <h3>
-                    Hospitality Head
-                </h3>
-
-                <div class="exp-company">
-                    Override 2025 · Mechanical Department Fest
-                </div>
-
-                <p>
-
-                    Led hospitality operations,
-                    guest reception, participant support
-                    and event logistics while coordinating
-                    with multiple committees.
-
-                </p>
-
+            <div class="timeline-date">
+                2025
             </div>
 
+            <h3>
+                Sports Head
+            </h3>
 
-            <div class="experience-card reveal">
+            <h4>
+                Override 2025 — Mechanical Department Fest
+            </h4>
 
-                <div class="exp-year">
-                    2025
-                </div>
+            <p>
+                Organized and managed competitive sports events,
+                including scheduling, venue setup and participant
+                coordination.
+            </p>
 
-                <h3>
-                    Sports Head
-                </h3>
+        </div>
 
-                <div class="exp-company">
-                    Override 2025 · Mechanical Department Fest
-                </div>
 
-                <p>
+        <div class="timeline-item reveal">
 
-                    Organized competitive sports events,
-                    scheduling, venue setup and participant
-                    coordination.
+            <div class="timeline-dot"></div>
 
-                </p>
-
+            <div class="timeline-date">
+                2024
             </div>
 
+            <h3>
+                Marketing & General Management Volunteer
+            </h3>
 
-            <div class="experience-card reveal">
+            <h4>
+                Dhwani'24 — College of Engineering Trivandrum
+            </h4>
 
-                <div class="exp-year">
-                    2024
-                </div>
+            <p>
+                Supported marketing outreach, volunteer
+                coordination and general event-management
+                activities.
+            </p>
 
-                <h3>
-                    Marketing & General Management Volunteer
-                </h3>
+        </div>
 
-                <div class="exp-company">
-                    Dhwani'24 · College of Engineering Trivandrum
-                </div>
 
-                <p>
+        <div class="timeline-item reveal">
 
-                    Supported marketing outreach,
-                    volunteer coordination and
-                    general event-management activities.
+            <div class="timeline-dot"></div>
 
-                </p>
-
+            <div class="timeline-date">
+                2024
             </div>
 
+            <h3>
+                Stage Committee Volunteer
+            </h3>
 
-            <div class="experience-card reveal">
+            <h4>
+                Drishti'24 — College of Engineering Trivandrum
+            </h4>
 
-                <div class="exp-year">
-                    2022 — 2023
-                </div>
+            <p>
+                Assisted with stage setup, coordination,
+                logistics and smooth execution of cultural
+                events.
+            </p>
 
-                <h3>
-                    Technical Workshops
-                </h3>
+        </div>
 
-                <div class="exp-company">
-                    MATLAB · Fusion 360 · Automotive · Mobility
-                </div>
 
-                <p>
+        <div class="timeline-item reveal">
 
-                    Gained practical exposure to MATLAB,
-                    Fusion 360, automotive diagnostics,
-                    tuning and future mobility technologies.
+            <div class="timeline-dot"></div>
 
-                </p>
-
+            <div class="timeline-date">
+                2022
             </div>
 
+            <h3>
+                Program Committee Volunteer
+            </h3>
+
+            <h4>
+                Malhar'22
+            </h4>
+
+            <p>
+                Supported program planning and coordination
+                for college events.
+            </p>
 
         </div>
 
     </div>
 
+</div>
+
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      PROJECTS
-====================================================== -->
+===================================================== -->
 
 <section id="projects">
 
-    <div class="container">
+<div class="container">
+
+    <div class="section-number">
+        04 / PROJECTS
+    </div>
+
+    <h2 class="section-title reveal">
+        SELECTED
+        <span>WORK.</span>
+    </h2>
 
 
-        <div class="projects-header">
+    <div class="projects-grid">
 
 
-            <div>
+        <article class="project-card reveal">
 
-                <div class="section-label reveal">
-                    PROJECTS
-                </div>
+            <div class="project-number">
+                PROJECT / 01
+            </div>
 
-                <h2 class="section-title reveal">
+            <h3>
+                Cat vs Dog
+                Image Classification
+            </h3>
 
-                    SELECTED
+            <p>
+                Built a Convolutional Neural Network for binary
+                image classification. Prepared image datasets,
+                implemented preprocessing, designed convolution,
+                pooling and fully connected layers, and evaluated
+                predictions using Python and Matplotlib.
+            </p>
 
-                    <span>
-                        WORK
-                    </span>
+            <div class="project-tags">
 
-                </h2>
+                <span>PYTHON</span>
+                <span>TENSORFLOW</span>
+                <span>KERAS</span>
+                <span>CNN</span>
+                <span>MATPLOTLIB</span>
 
             </div>
 
-
-            <div class="project-filters reveal">
-
-                <button
-                    class="filter active"
-                    data-filter="all">
-
-                    ALL
-
-                </button>
+        </article>
 
 
-                <button
-                    class="filter"
-                    data-filter="ai">
+        <article class="project-card reveal">
 
-                    AI / ML
+            <div class="project-number">
+                PROJECT / 02
+            </div>
 
-                </button>
+            <h3>
+                Hollow-Core Radial
+                Slotted Pin Fin Heat Sink
+            </h3>
 
+            <p>
+                Conducted numerical investigation and optimization
+                of a hollow-core radial slotted pin-fin heat sink.
+                Analyzed engineering parameters and design
+                configurations to improve heat-transfer performance.
+            </p>
 
-                <button
-                    class="filter"
-                    data-filter="engineering">
+            <div class="project-tags">
 
-                    ENGINEERING
-
-                </button>
+                <span>NUMERICAL ANALYSIS</span>
+                <span>OPTIMIZATION</span>
+                <span>THERMAL</span>
+                <span>ENGINEERING</span>
 
             </div>
 
-
-        </div>
-
-
-        <div class="projects-grid">
-
-
-            <!-- PROJECT 1 -->
-
-            <article
-                class="project-card reveal"
-                data-category="ai">
-
-
-                <div class="project-number">
-                    PROJECT
-                </div>
-
-
-                <div class="project-icon">
-                    ◉
-                </div>
-
-
-                <h3>
-
-                    Cat vs Dog
-
-                    <br>
-
-                    Image Classification
-
-                </h3>
-
-
-                <p>
-
-                    Built a Convolutional Neural Network
-                    for binary image classification.
-                    Prepared image datasets, implemented
-                    preprocessing and designed convolution,
-                    pooling and fully connected layers.
-
-                </p>
-
-
-                <div class="tech-stack">
-
-                    <span class="tech">
-                        PYTHON
-                    </span>
-
-                    <span class="tech">
-                        TENSORFLOW
-                    </span>
-
-                    <span class="tech">
-                        KERAS
-                    </span>
-
-                    <span class="tech">
-                        CNN
-                    </span>
-
-                    <span class="tech">
-                        MATPLOTLIB
-                    </span>
-
-                </div>
-
-
-                <div class="project-glow"></div>
-
-
-            </article>
-
-
-            <!-- PROJECT 2 -->
-
-            <article
-                class="project-card reveal"
-                data-category="engineering">
-
-
-                <div class="project-number">
-                    PROJECT
-                </div>
-
-
-                <div class="project-icon">
-                    ◇
-                </div>
-
-
-                <h3>
-
-                    Hollow-Core Radial
-
-                    <br>
-
-                    Slotted Pin Fin
-
-                </h3>
-
-
-                <p>
-
-                    Conducted numerical investigation
-                    of a hollow-core radial slotted pin-fin
-                    heat sink to study thermal performance,
-                    engineering parameters and design
-                    configurations.
-
-                </p>
-
-
-                <div class="tech-stack">
-
-                    <span class="tech">
-                        NUMERICAL ANALYSIS
-                    </span>
-
-                    <span class="tech">
-                        OPTIMIZATION
-                    </span>
-
-                    <span class="tech">
-                        THERMAL
-                    </span>
-
-                    <span class="tech">
-                        ENGINEERING
-                    </span>
-
-                </div>
-
-
-                <div class="project-glow"></div>
-
-
-            </article>
-
-
-        </div>
+        </article>
 
     </div>
+
+</div>
 
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      SKILLS
-====================================================== -->
+===================================================== -->
 
 <section id="skills">
 
-    <div class="container">
+<div class="container">
+
+    <div class="section-number">
+        05 / SKILLS
+    </div>
+
+    <h2 class="section-title reveal">
+        MY
+        <span>TOOLKIT.</span>
+    </h2>
 
 
-        <div class="skills-layout">
+    <div class="skills-grid">
 
 
-            <div>
+        <!-- PROGRAMMING -->
 
-                <div class="section-label reveal">
-                    SKILLS
+        <div class="skill-card reveal">
+
+            <h3>
+                Programming & Analysis
+            </h3>
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Python</span>
+                    <span>80%</span>
                 </div>
 
-
-                <h2 class="section-title reveal">
-
-                    MY
-
-                    <span>
-                        TOOLBOX
-                    </span>
-
-                </h2>
-
-
-                <p class="hero-description reveal">
-
-                    A hybrid skill set combining
-                    engineering fundamentals with
-                    computational intelligence.
-
-                </p>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="80%"></div>
+                </div>
 
             </div>
 
 
-            <div class="reveal">
+            <div class="skill">
 
-
-                <div class="skill-category">
-
-                    <h3>
-                        Programming
-                    </h3>
-
-                    <div class="skill-cloud">
-
-                        <div class="skill-pill">
-                            Python
-                        </div>
-
-                        <div class="skill-pill">
-                            MATLAB
-                        </div>
-
-                    </div>
-
+                <div class="skill-top">
+                    <span>MATLAB</span>
+                    <span>75%</span>
                 </div>
 
-
-                <div class="skill-category">
-
-                    <h3>
-                        Machine Learning
-                    </h3>
-
-                    <div class="skill-cloud">
-
-                        <div class="skill-pill">
-                            Machine Learning
-                        </div>
-
-                        <div class="skill-pill">
-                            Deep Learning
-                        </div>
-
-                        <div class="skill-pill">
-                            CNN
-                        </div>
-
-                        <div class="skill-pill">
-                            TensorFlow
-                        </div>
-
-                        <div class="skill-pill">
-                            Keras
-                        </div>
-
-                    </div>
-
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="75%"></div>
                 </div>
 
+            </div>
 
-                <div class="skill-category">
 
-                    <h3>
-                        Data Science
-                    </h3>
+            <div class="skill">
 
-                    <div class="skill-cloud">
-
-                        <div class="skill-pill">
-                            Data Analysis
-                        </div>
-
-                        <div class="skill-pill">
-                            Data Preprocessing
-                        </div>
-
-                        <div class="skill-pill">
-                            Data Visualization
-                        </div>
-
-                        <div class="skill-pill">
-                            Numerical Analysis
-                        </div>
-
-                        <div class="skill-pill">
-                            NumPy
-                        </div>
-
-                        <div class="skill-pill">
-                            pandas
-                        </div>
-
-                        <div class="skill-pill">
-                            Matplotlib
-                        </div>
-
-                    </div>
-
+                <div class="skill-top">
+                    <span>Numerical Analysis</span>
+                    <span>82%</span>
                 </div>
 
-
-                <div class="skill-category">
-
-                    <h3>
-                        Engineering
-                    </h3>
-
-                    <div class="skill-cloud">
-
-                        <div class="skill-pill">
-                            AutoCAD
-                        </div>
-
-                        <div class="skill-pill">
-                            Fusion 360
-                        </div>
-
-                        <div class="skill-pill">
-                            Basic CFD
-                        </div>
-
-                        <div class="skill-pill">
-                            Optimization
-                        </div>
-
-                    </div>
-
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="82%"></div>
                 </div>
 
+            </div>
 
-                <div class="skill-category">
+        </div>
 
-                    <h3>
-                        Core Skills
-                    </h3>
 
-                    <div class="skill-cloud">
+        <!-- AI -->
 
-                        <div class="skill-pill">
-                            Problem Solving
-                        </div>
+        <div class="skill-card reveal">
 
-                        <div class="skill-pill">
-                            Analytical Thinking
-                        </div>
+            <h3>
+                AI / Machine Learning
+            </h3>
 
-                        <div class="skill-pill">
-                            Project Management
-                        </div>
+            <div class="skill">
 
-                        <div class="skill-pill">
-                            Team Collaboration
-                        </div>
-
-                    </div>
-
+                <div class="skill-top">
+                    <span>Machine Learning</span>
+                    <span>72%</span>
                 </div>
 
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="72%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Deep Learning</span>
+                    <span>68%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="68%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>CNN</span>
+                    <span>70%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="70%"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATA -->
+
+        <div class="skill-card reveal">
+
+            <h3>
+                Data Science
+            </h3>
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Data Analysis</span>
+                    <span>76%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="76%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Data Preprocessing</span>
+                    <span>75%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="75%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Data Visualization</span>
+                    <span>72%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="72%"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ENGINEERING -->
+
+        <div class="skill-card reveal">
+
+            <h3>
+                Engineering Tools
+            </h3>
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>AutoCAD</span>
+                    <span>80%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="80%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Fusion 360</span>
+                    <span>78%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="78%"></div>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-top">
+                    <span>Basic CFD</span>
+                    <span>65%</span>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="65%"></div>
+                </div>
 
             </div>
 
@@ -3559,403 +2235,390 @@ footer {
 
     </div>
 
+
+    <!-- LIBRARIES -->
+
+    <h3
+        class="reveal"
+        style="
+        font-family:'Space Grotesk';
+        font-size:24px;
+        margin-top:70px;
+        margin-bottom:25px;
+        "
+    >
+        Libraries / Frameworks
+    </h3>
+
+    <div class="workshops reveal">
+
+        <div class="workshop">TensorFlow</div>
+
+        <div class="workshop">Keras</div>
+
+        <div class="workshop">NumPy</div>
+
+        <div class="workshop">pandas</div>
+
+        <div class="workshop">Matplotlib</div>
+
+        <div class="workshop">Python</div>
+
+        <div class="workshop">MATLAB</div>
+
+    </div>
+
+
+    <!-- WORKSHOPS -->
+
+    <h3
+        class="reveal"
+        style="
+        font-family:'Space Grotesk';
+        font-size:24px;
+        margin-top:70px;
+        margin-bottom:25px;
+        "
+    >
+        Workshops & Training
+    </h3>
+
+    <div class="workshops reveal">
+
+        <div class="workshop">
+            MATLAB Workshop — 2023
+        </div>
+
+        <div class="workshop">
+            Fusion 360 Workshop — 2023
+        </div>
+
+        <div class="workshop">
+            Automotive Diagnostics & Tuning — 2022
+        </div>
+
+        <div class="workshop">
+            Electric & Future Mobility — 2022
+        </div>
+
+        <div class="workshop">
+            AutoCAD Workshop
+        </div>
+
+        <div class="workshop">
+            Future of Mobility Webinar
+        </div>
+
+        <div class="workshop">
+            EV Career Guidance
+        </div>
+
+    </div>
+
+</div>
+
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      ACHIEVEMENTS
-====================================================== -->
+===================================================== -->
 
 <section>
 
-    <div class="container">
+<div class="container">
+
+    <div class="section-number">
+        06 / ACHIEVEMENTS
+    </div>
+
+    <h2 class="section-title reveal">
+        BEYOND THE
+        <span>CLASSROOM.</span>
+    </h2>
 
 
-        <div class="section-label reveal">
-            ACTIVITIES
+    <div class="achievement-grid">
+
+        <div class="achievement reveal">
+
+            <div class="achievement-icon">
+                ⚽
+            </div>
+
+            <h4>
+                A-Zone Football Champion
+            </h4>
+
+            <p>
+                2022–23
+            </p>
+
         </div>
 
 
-        <h2 class="section-title reveal">
+        <div class="achievement reveal">
 
-            ACHIEVEMENTS &
-
-            <span>
-                ACTIVITIES
-            </span>
-
-        </h2>
-
-
-        <div class="achievement-grid">
-
-
-            <div class="achievement reveal">
-
-                <div class="achievement-icon">
-                    ⚽
-                </div>
-
-                <h3>
-                    Champion —
-                    A-Zone Football Tournament
-                </h3>
-
-                <p>
-                    2022–23 · 2023–24
-                </p>
-
+            <div class="achievement-icon">
+                🏆
             </div>
 
+            <h4>
+                A-Zone Football Champion
+            </h4>
 
-            <div class="achievement reveal">
+            <p>
+                2023–24
+            </p>
 
-                <div class="achievement-icon">
-                    🏆
-                </div>
+        </div>
 
-                <h3>
-                    Champion —
-                    Torque Football Tournament
-                </h3>
 
-                <p>
-                    2022–23
-                </p>
+        <div class="achievement reveal">
 
+            <div class="achievement-icon">
+                🥇
             </div>
 
+            <h4>
+                Torque Football Tournament
+            </h4>
 
-            <div class="achievement reveal">
+            <p>
+                Champion — 2022–23
+            </p>
 
-                <div class="achievement-icon">
-                    ✈
-                </div>
+        </div>
 
-                <h3>
-                    Member —
-                    Aeronautical Society of India
-                </h3>
 
-                <p>
-                    PROFESSIONAL ACTIVITY
-                </p>
+        <div class="achievement reveal">
 
+            <div class="achievement-icon">
+                ✈
             </div>
 
+            <h4>
+                Aeronautical Society of India
+            </h4>
 
-            <div class="achievement reveal">
-
-                <div class="achievement-icon">
-                    ⚙
-                </div>
-
-                <h3>
-                    Member —
-                    College Football Team
-                </h3>
-
-                <p>
-                    COLLEGE OF ENGINEERING TRIVANDRUM
-                </p>
-
-            </div>
-
+            <p>
+                Member
+            </p>
 
         </div>
 
     </div>
 
+</div>
+
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      CONTACT
-====================================================== -->
+===================================================== -->
 
-<section id="contact">
+<section id="contact" class="contact-section">
 
-    <div class="container">
+<div class="container">
 
-
-        <div class="contact-box reveal">
-
-
-            <div class="section-label">
-                CONTACT
-            </div>
+    <div class="section-number">
+        07 / CONTACT
+    </div>
 
 
-            <h2>
+    <div class="contact-grid">
 
-                LET'S BUILD
 
-                <span>
-                    WHAT'S NEXT.
+        <div class="reveal">
+
+            <h2 class="contact-heading">
+
+                LET'S
+
+                <span class="gradient">
+                    CONNECT.
                 </span>
 
             </h2>
 
-
             <p class="contact-description">
 
-                I'm open to entry-level opportunities
-                in AI/ML, Data Science and technology
-                roles where engineering problem-solving
-                and computational skills can create
-                real-world impact.
+                Have an opportunity, project or idea?
+
+                I am open to entry-level opportunities in
+                AI/ML, Data Science and technology where
+                engineering and computational thinking can
+                create practical solutions.
 
             </p>
 
-
-            <!-- CONTACT DETAILS -->
-
-            <div class="contact-info">
+        </div>
 
 
-                <!-- ADDRESS -->
-
-                <a
-                    class="contact-item"
-                    href="https://www.google.com/maps/search/?api=1&query=Thodupuzha%2C%20Kerala%2C%20India"
-                    target="_blank">
+        <div class="contact-details reveal">
 
 
-                    <div class="contact-icon">
-                        📍
-                    </div>
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:ambrozr11@gmail.com"
+                class="contact-item"
+            >
+
+                <span class="contact-label">
+                    EMAIL
+                </span>
+
+                <span class="contact-value">
+                    ambrozr11@gmail.com
+                </span>
+
+                <span class="contact-arrow">
+                    ↗
+                </span>
+
+            </a>
 
 
-                    <div>
+            <!-- PHONE -->
 
-                        <span class="contact-label">
-                            ADDRESS
-                        </span>
+            <a
+                href="tel:+919074429889"
+                class="contact-item"
+            >
 
-                        <strong>
-                            Thodupuzha, Kerala, India
-                        </strong>
+                <span class="contact-label">
+                    PHONE
+                </span>
 
-                    </div>
+                <span class="contact-value">
+                    +91 90744 29889
+                </span>
 
+                <span class="contact-arrow">
+                    ↗
+                </span>
 
-                </a>
-
-
-                <!-- PHONE -->
-
-                <a
-                    class="contact-item"
-                    href="tel:+919074429889">
-
-
-                    <div class="contact-icon">
-                        ☎
-                    </div>
+            </a>
 
 
-                    <div>
+            <!-- LOCATION -->
 
-                        <span class="contact-label">
-                            PHONE
-                        </span>
+            <div class="contact-item">
 
-                        <strong>
-                            +91 90744 29889
-                        </strong>
+                <span class="contact-label">
+                    LOCATION
+                </span>
 
-                    </div>
+                <span class="contact-value">
+                    Thodupuzha, Kerala, India
+                </span>
 
-
-                </a>
-
-
-                <!-- EMAIL -->
-
-                <a
-                    class="contact-item"
-                    href="mailto:ambrozr11@gmail.com">
-
-
-                    <div class="contact-icon">
-                        ✉
-                    </div>
-
-
-                    <div>
-
-                        <span class="contact-label">
-                            EMAIL
-                        </span>
-
-                        <strong>
-                            ambrozr11@gmail.com
-                        </strong>
-
-                    </div>
-
-
-                </a>
-
-
-                <!-- LINKEDIN -->
-
-                <a
-                    class="contact-item"
-                    href="https://www.linkedin.com/in/ambareesh-v-p-b7a093364/"
-                    target="_blank">
-
-
-                    <div class="contact-icon">
-                        in
-                    </div>
-
-
-                    <div>
-
-                        <span class="contact-label">
-                            LINKEDIN
-                        </span>
-
-                        <strong>
-                            Ambareesh V P
-                        </strong>
-
-                    </div>
-
-
-                </a>
-
-
-                <!-- GITHUB -->
-
-                <a
-                    class="contact-item"
-                    href="https://github.com/ambrozr11-NJ"
-                    target="_blank">
-
-
-                    <div class="contact-icon">
-                        &lt;/&gt;
-                    </div>
-
-
-                    <div>
-
-                        <span class="contact-label">
-                            GITHUB
-                        </span>
-
-                        <strong>
-                            ambrozr11-NJ
-                        </strong>
-
-                    </div>
-
-
-                </a>
-
+                <span></span>
 
             </div>
 
 
-            <!-- BUTTONS -->
+            <!-- LINKEDIN -->
 
-            <div class="hero-buttons">
+            <a
+                href="https://www.linkedin.com/in/ambareesh-v-p-b7a093364/"
+                target="_blank"
+                rel="noopener"
+                class="contact-item"
+            >
 
-
-                <a
-                    href="mailto:ambrozr11@gmail.com"
-                    class="btn btn-primary magnetic">
-
-                    SEND EMAIL
-
-                    ↗
-
-                </a>
-
-
-                <a
-                    href="tel:+919074429889"
-                    class="btn btn-secondary magnetic">
-
-                    CALL ME
-
-                    ☎
-
-                </a>
-
-
-                <a
-                    href="https://www.linkedin.com/in/ambareesh-v-p-b7a093364/"
-                    target="_blank"
-                    class="btn btn-secondary magnetic">
-
+                <span class="contact-label">
                     LINKEDIN
+                </span>
 
+                <span class="contact-value">
+                    Ambareesh V P
+                </span>
+
+                <span class="contact-arrow">
                     ↗
+                </span>
 
-                </a>
+            </a>
 
 
-                <a
-                    href="https://github.com/ambrozr11-NJ"
-                    target="_blank"
-                    class="btn btn-secondary magnetic">
+            <!-- GITHUB -->
 
+            <a
+                href="https://github.com/ambrozr11-NJ"
+                target="_blank"
+                rel="noopener"
+                class="contact-item"
+            >
+
+                <span class="contact-label">
                     GITHUB
+                </span>
 
+                <span class="contact-value">
+                    github.com/ambrozr11-NJ
+                </span>
+
+                <span class="contact-arrow">
                     ↗
+                </span>
 
-                </a>
+            </a>
 
 
-            </div>
+            <!-- RESUME -->
 
+            <a
+                href="MY_RESUME.pdf"
+                target="_blank"
+                class="contact-item"
+            >
+
+                <span class="contact-label">
+                    RESUME
+                </span>
+
+                <span class="contact-value">
+                    View / Download Resume
+                </span>
+
+                <span class="contact-arrow">
+                    ↓
+                </span>
+
+            </a>
 
         </div>
 
     </div>
+
+</div>
 
 </section>
 
 
-</main>
-
-
-<!-- ======================================================
+<!-- =====================================================
      FOOTER
-====================================================== -->
+===================================================== -->
 
 <footer>
 
-    <div class="container">
+    <span>
+        © 2026 AMBAREESH V P
+    </span>
 
-        <div class="footer-inner">
-
-
-            <span>
-                AMBAREESH V P
-            </span>
-
-
-            <span>
-                AI × ENGINEERING × DATA
-            </span>
-
-
-            <span>
-                THODUPUZHA, KERALA
-            </span>
-
-
-        </div>
-
-    </div>
+    <span>
+        DESIGNED & BUILT WITH CURIOSITY.
+    </span>
 
 </footer>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
@@ -3963,24 +2626,161 @@ footer {
    LOADER
 ========================================================= */
 
-window.addEventListener(
-    "load",
-    () => {
+window.addEventListener("load", () => {
 
-        setTimeout(
-            () => {
+    setTimeout(() => {
 
-                document
-                    .querySelector(".loader")
-                    .classList
-                    .add("hide");
+        document
+            .getElementById("loader")
+            .classList.add("hide");
 
-            },
-            700
-        );
+    }, 700);
 
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("open");
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: .12
     }
+
 );
+
+document.querySelectorAll(".reveal").forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   SKILL BAR ANIMATION
+========================================================= */
+
+const skillObserver = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting) {
+
+                const bars =
+                    entry.target.querySelectorAll(".skill-fill");
+
+                bars.forEach(bar => {
+
+                    bar.style.width =
+                        bar.dataset.width;
+
+                });
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: .3
+    }
+
+);
+
+document.querySelectorAll(".skill-card").forEach(card => {
+
+    skillObserver.observe(card);
+
+});
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 160;
+
+        if(window.scrollY >= sectionTop) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
 
 
 /* =========================================================
@@ -3988,770 +2788,158 @@ window.addEventListener(
 ========================================================= */
 
 const cursor =
-    document.querySelector(".cursor");
+    document.getElementById("cursor");
 
-const cursorRing =
-    document.querySelector(".cursor-ring");
+const cursorDot =
+    document.getElementById("cursorDot");
 
-let mouseX = 0;
-let mouseY = 0;
+const glow =
+    document.getElementById("glow");
 
-let ringX = 0;
-let ringY = 0;
+document.addEventListener("mousemove", e => {
 
+    cursor.style.left = e.clientX + "px";
 
-document.addEventListener(
-    "mousemove",
-    e => {
+    cursor.style.top = e.clientY + "px";
 
-        mouseX = e.clientX;
+    cursorDot.style.left = e.clientX + "px";
 
-        mouseY = e.clientY;
+    cursorDot.style.top = e.clientY + "px";
 
-        cursor.style.left =
-            mouseX + "px";
+    glow.style.left =
+        (e.clientX - 250) + "px";
 
-        cursor.style.top =
-            mouseY + "px";
+    glow.style.top =
+        (e.clientY - 250) + "px";
 
-    }
-);
-
-
-function cursorAnimation() {
-
-    ringX +=
-        (mouseX - ringX) * .12;
-
-    ringY +=
-        (mouseY - ringY) * .12;
-
-    cursorRing.style.left =
-        ringX + "px";
-
-    cursorRing.style.top =
-        ringY + "px";
-
-    requestAnimationFrame(
-        cursorAnimation
-    );
-
-}
-
-
-cursorAnimation();
-
-
-document
-    .querySelectorAll(
-        "a, button, .project-card, .skill-pill"
-    )
-    .forEach(
-        element => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-
-                    cursorRing
-                        .classList
-                        .add("active");
-
-                }
-            );
-
-
-            element.addEventListener(
-                "mouseleave",
-                () => {
-
-                    cursorRing
-                        .classList
-                        .remove("active");
-
-                }
-            );
-
-        }
-    );
+});
 
 
 /* =========================================================
-   NAVIGATION SCROLL
-========================================================= */
-
-const nav =
-    document.querySelector(".nav");
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if(
-            window.scrollY > 40
-        ) {
-
-            nav
-                .classList
-                .add("scrolled");
-
-        } else {
-
-            nav
-                .classList
-                .remove("scrolled");
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const menuBtn =
-    document.querySelector(".menu-btn");
-
-const navLinks =
-    document.querySelector(".nav-links");
-
-
-menuBtn.addEventListener(
-    "click",
-    () => {
-
-        navLinks
-            .classList
-            .toggle("open");
-
-    }
-);
-
-
-navLinks
-    .querySelectorAll("a")
-    .forEach(
-        link => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    navLinks
-                        .classList
-                        .remove("open");
-
-                }
-            );
-
-        }
-    );
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if(
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target
-                            .classList
-                            .add("show");
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: .12
-        }
-    );
-
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(
-        element => {
-
-            revealObserver.observe(
-                element
-            );
-
-        }
-    );
-
-
-/* =========================================================
-   ACTIVE NAV
-========================================================= */
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-const links =
-    document.querySelectorAll(
-        ".nav-links a"
-    );
-
-
-const navObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if(
-                        entry.isIntersecting
-                    ) {
-
-                        links.forEach(
-                            link => {
-
-                                link.classList
-                                    .remove(
-                                        "active"
-                                    );
-
-
-                                if(
-                                    link.getAttribute(
-                                        "href"
-                                    )
-                                    ===
-                                    "#" +
-                                    entry.target.id
-                                ) {
-
-                                    link.classList
-                                        .add(
-                                            "active"
-                                        );
-
-                                }
-
-                            }
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            rootMargin:
-                "-40% 0px -50% 0px"
-        }
-    );
-
-
-sections.forEach(
-    section => {
-
-        navObserver.observe(
-            section
-        );
-
-    }
-);
-
-
-/* =========================================================
-   COUNTERS
-========================================================= */
-
-const counters =
-    document.querySelectorAll(
-        ".stat-number"
-    );
-
-let countersStarted = false;
-
-
-const counterObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if(
-                        entry.isIntersecting &&
-                        !countersStarted
-                    ) {
-
-                        countersStarted = true;
-
-
-                        counters.forEach(
-                            counter => {
-
-                                const target =
-                                    Number(
-                                        counter.dataset.count
-                                    );
-
-
-                                let current = 0;
-
-
-                                const duration =
-                                    target > 100
-                                    ? 1400
-                                    : 800;
-
-
-                                const increment =
-                                    target / 40;
-
-
-                                const timer =
-                                    setInterval(
-                                        () => {
-
-                                            current +=
-                                                increment;
-
-
-                                            if(
-                                                current >=
-                                                target
-                                            ) {
-
-                                                current =
-                                                    target;
-
-                                                clearInterval(
-                                                    timer
-                                                );
-
-                                            }
-
-
-                                            counter.textContent =
-                                                Math.floor(
-                                                    current
-                                                );
-
-                                        },
-                                        duration / 40
-                                    );
-
-                            }
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-const stats =
-    document.querySelector(".stats");
-
-
-if(stats) {
-
-    counterObserver.observe(
-        stats
-    );
-
-}
-
-
-/* =========================================================
-   PROJECT FILTER
-========================================================= */
-
-const filters =
-    document.querySelectorAll(
-        ".filter"
-    );
-
-const projects =
-    document.querySelectorAll(
-        ".project-card"
-    );
-
-
-filters.forEach(
-    filter => {
-
-        filter.addEventListener(
-            "click",
-            () => {
-
-
-                filters.forEach(
-                    item =>
-                        item.classList
-                            .remove("active")
-                );
-
-
-                filter.classList
-                    .add("active");
-
-
-                const category =
-                    filter.dataset.filter;
-
-
-                projects.forEach(
-                    project => {
-
-
-                        if(
-                            category === "all" ||
-                            project.dataset.category
-                                === category
-                        ) {
-
-                            project.style.display =
-                                "block";
-
-
-                            setTimeout(
-                                () => {
-
-                                    project.style.opacity =
-                                        "1";
-
-                                    project.style.transform =
-                                        "scale(1)";
-
-                                },
-                                10
-                            );
-
-                        } else {
-
-                            project.style.opacity =
-                                "0";
-
-                            project.style.transform =
-                                "scale(.94)";
-
-
-                            setTimeout(
-                                () => {
-
-                                    project.style.display =
-                                        "none";
-
-                                },
-                                250
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   3D PROJECT CARDS
+   CURSOR HOVER
 ========================================================= */
 
 document
-    .querySelectorAll(".project-card")
-    .forEach(
-        card => {
+    .querySelectorAll("a, button, .project-card")
+    .forEach(element => {
 
+        element.addEventListener("mouseenter", () => {
 
-            card.addEventListener(
-                "mousemove",
-                e => {
+            cursor.style.width = "35px";
 
+            cursor.style.height = "35px";
 
-                    if(
-                        window.innerWidth < 800
-                    ) return;
+            cursor.style.background =
+                "rgba(70,230,255,.08)";
 
+        });
 
-                    const rect =
-                        card.getBoundingClientRect();
+        element.addEventListener("mouseleave", () => {
 
+            cursor.style.width = "18px";
 
-                    const x =
-                        e.clientX -
-                        rect.left;
+            cursor.style.height = "18px";
 
+            cursor.style.background =
+                "transparent";
 
-                    const y =
-                        e.clientY -
-                        rect.top;
+        });
 
-
-                    const centerX =
-                        rect.width / 2;
-
-
-                    const centerY =
-                        rect.height / 2;
-
-
-                    const rotateX =
-                        (y - centerY) / 20;
-
-
-                    const rotateY =
-                        (centerX - x) / 20;
-
-
-                    card.style.transform =
-
-                        `perspective(900px)
-                         rotateX(${rotateX}deg)
-                         rotateY(${rotateY}deg)
-                         translateY(-6px)
-                         scale(1.01)`;
-
-                }
-            );
-
-
-            card.addEventListener(
-                "mouseleave",
-                () => {
-
-                    card.style.transform =
-                        "none";
-
-                }
-            );
-
-
-        }
-    );
+    });
 
 
 /* =========================================================
-   MAGNETIC BUTTONS
-========================================================= */
-
-document
-    .querySelectorAll(".magnetic")
-    .forEach(
-        button => {
-
-
-            button.addEventListener(
-                "mousemove",
-                e => {
-
-
-                    const rect =
-                        button.getBoundingClientRect();
-
-
-                    const x =
-                        e.clientX -
-                        rect.left -
-                        rect.width / 2;
-
-
-                    const y =
-                        e.clientY -
-                        rect.top -
-                        rect.height / 2;
-
-
-                    button.style.transform =
-
-                        `translate(
-                            ${x * .15}px,
-                            ${y * .15}px
-                        )`;
-
-                }
-            );
-
-
-            button.addEventListener(
-                "mouseleave",
-                () => {
-
-                    button.style.transform =
-                        "translate(0,0)";
-
-                }
-            );
-
-
-        }
-    );
-
-
-/* =========================================================
-   NEURAL NETWORK
+   PARTICLES
 ========================================================= */
 
 const canvas =
-    document.getElementById(
-        "network"
-    );
+    document.getElementById("particles");
 
 const ctx =
     canvas.getContext("2d");
 
-
 let particles = [];
-
-
-const particleCount =
-    window.innerWidth < 700
-    ? 40
-    : 80;
-
 
 function resizeCanvas() {
 
-
     canvas.width =
-        window.innerWidth *
-        window.devicePixelRatio;
-
+        window.innerWidth;
 
     canvas.height =
-        window.innerHeight *
-        window.devicePixelRatio;
-
-
-    canvas.style.width =
-        window.innerWidth + "px";
-
-
-    canvas.style.height =
-        window.innerHeight + "px";
-
-
-    ctx.setTransform(
-        window.devicePixelRatio,
-        0,
-        0,
-        window.devicePixelRatio,
-        0,
-        0
-    );
+        window.innerHeight;
 
 }
 
-
 resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
 
 
 class Particle {
 
-
     constructor() {
-
 
         this.x =
             Math.random() *
-            window.innerWidth;
-
+            canvas.width;
 
         this.y =
             Math.random() *
-            window.innerHeight;
+            canvas.height;
 
+        this.size =
+            Math.random() * 1.5 + .4;
 
-        this.vx =
-            (Math.random() - .5) *
-            .3;
+        this.speedX =
+            (Math.random() - .5) * .25;
 
+        this.speedY =
+            (Math.random() - .5) * .25;
 
-        this.vy =
-            (Math.random() - .5) *
-            .3;
-
-
-        this.radius =
-            Math.random() *
-            1.4 + .4;
-
+        this.opacity =
+            Math.random() * .5 + .1;
 
     }
-
 
     update() {
 
+        this.x += this.speedX;
 
-        this.x +=
-            this.vx;
+        this.y += this.speedY;
 
+        if(this.x < 0 ||
+           this.x > canvas.width) {
 
-        this.y +=
-            this.vy;
-
-
-        if(
-            this.x < 0 ||
-            this.x > window.innerWidth
-        ) {
-
-            this.vx *= -1;
+            this.speedX *= -1;
 
         }
 
+        if(this.y < 0 ||
+           this.y > canvas.height) {
 
-        if(
-            this.y < 0 ||
-            this.y > window.innerHeight
-        ) {
-
-            this.vy *= -1;
+            this.speedY *= -1;
 
         }
 
     }
 
-
     draw() {
 
-
         ctx.beginPath();
-
 
         ctx.arc(
             this.x,
             this.y,
-            this.radius,
+            this.size,
             0,
             Math.PI * 2
         );
 
-
         ctx.fillStyle =
-            "rgba(184,140,255,.45)";
-
+            `rgba(120,180,255,${this.opacity})`;
 
         ctx.fill();
 
@@ -4760,183 +2948,137 @@ class Particle {
 }
 
 
-for(
-    let i = 0;
-    i < particleCount;
-    i++
-) {
+function initParticles() {
 
-    particles.push(
-        new Particle()
-    );
+    particles = [];
+
+    const count =
+        Math.min(
+            90,
+            Math.floor(
+                window.innerWidth / 15
+            )
+        );
+
+    for(let i = 0; i < count; i++) {
+
+        particles.push(
+            new Particle()
+        );
+
+    }
 
 }
 
+initParticles();
 
-function animateNetwork() {
 
+function animateParticles() {
 
     ctx.clearRect(
         0,
         0,
-        window.innerWidth,
-        window.innerHeight
+        canvas.width,
+        canvas.height
     );
 
+    particles.forEach(particle => {
 
-    particles.forEach(
-        particle => {
+        particle.update();
 
-            particle.update();
+        particle.draw();
 
-            particle.draw();
-
-        }
-    );
-
-
-    for(
-        let i = 0;
-        i < particles.length;
-        i++
-    ) {
-
-
-        for(
-            let j = i + 1;
-            j < particles.length;
-            j++
-        ) {
-
-
-            const a =
-                particles[i];
-
-
-            const b =
-                particles[j];
-
-
-            const dx =
-                a.x - b.x;
-
-
-            const dy =
-                a.y - b.y;
-
-
-            const distance =
-                Math.sqrt(
-                    dx * dx +
-                    dy * dy
-                );
-
-
-            if(
-                distance < 130
-            ) {
-
-
-                const opacity =
-                    .10 *
-                    (
-                        1 -
-                        distance / 130
-                    );
-
-
-                ctx.beginPath();
-
-
-                ctx.moveTo(
-                    a.x,
-                    a.y
-                );
-
-
-                ctx.lineTo(
-                    b.x,
-                    b.y
-                );
-
-
-                ctx.strokeStyle =
-                    `rgba(
-                        184,
-                        140,
-                        255,
-                        ${opacity}
-                    )`;
-
-
-                ctx.lineWidth =
-                    .5;
-
-
-                ctx.stroke();
-
-            }
-
-        }
-
-    }
-
+    });
 
     requestAnimationFrame(
-        animateNetwork
+        animateParticles
     );
 
 }
 
-
-animateNetwork();
-
-
-window.addEventListener(
-    "resize",
-    () => {
-
-        resizeCanvas();
-
-    }
-);
+animateParticles();
 
 
 /* =========================================================
-   HERO PARALLAX
+   3D PROJECT CARD EFFECT
 ========================================================= */
 
-window.addEventListener(
-    "scroll",
-    () => {
+document
+    .querySelectorAll(".project-card")
+    .forEach(card => {
+
+        card.addEventListener(
+            "mousemove",
+            e => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    e.clientX - rect.left;
+
+                const y =
+                    e.clientY - rect.top;
+
+                const rotateY =
+                    ((x / rect.width) - .5) * 5;
+
+                const rotateX =
+                    ((y / rect.height) - .5) * -5;
+
+                card.style.transform =
+                    `perspective(900px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-5px)`;
+
+            }
+        );
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.transform =
+                    "perspective(900px) rotateX(0) rotateY(0)";
+
+            }
+        );
+
+    });
 
 
-        const visual =
-            document.querySelector(
-                ".hero-visual"
-            );
+/* =========================================================
+   SMOOTH BUTTON EFFECT
+========================================================= */
 
+document
+    .querySelectorAll(".btn")
+    .forEach(button => {
 
-        if(
-            visual &&
-            window.innerWidth > 800
-        ) {
+        button.addEventListener(
+            "mouseenter",
+            () => {
 
+                button.style.transform =
+                    "translateY(-3px)";
 
-            visual.style.transform =
+            }
+        );
 
-                `translateY(
-                    ${window.scrollY * .06}px
-                )`;
+        button.addEventListener(
+            "mouseleave",
+            () => {
 
-        }
+                button.style.transform =
+                    "translateY(0)";
 
-    }
-);
+            }
+        );
+
+    });
 
 </script>
 
-
 </body>
-
 </html>
