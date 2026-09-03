@@ -1,0 +1,4942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Ambareesh V P | Mechanical Engineer | AI ML | Data Science">
+
+    <title>Ambareesh V P | Portfolio</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg: #050505;
+    --bg2: #0b0a0e;
+
+    --card: rgba(17, 15, 21, .78);
+
+    --text: #f7f4ed;
+
+    --muted: #98939d;
+
+    --primary: #b88cff;
+
+    --primary-light: #d8bdff;
+
+    --gold: #e8c47c;
+
+    --white: #ffffff;
+
+    --border: rgba(255,255,255,.10);
+
+    --purple-glow:
+        rgba(184,140,255,.20);
+
+    --gold-glow:
+        rgba(232,196,124,.12);
+
+    --max: 1200px;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(184,140,255,.07),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(232,196,124,.045),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    color: var(--text);
+
+    font-family: Inter, sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+button {
+
+    font-family: inherit;
+
+}
+
+
+::selection {
+
+    background: var(--primary);
+
+    color: #050505;
+
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: #030303;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+}
+
+
+.loader.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+.loader-inner {
+
+    text-align: center;
+
+}
+
+
+.loader-logo {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 15px;
+
+    letter-spacing: 3px;
+
+    color: var(--primary);
+
+    margin-bottom: 20px;
+
+}
+
+
+.loader-line {
+
+    width: 240px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,.1);
+
+    overflow: hidden;
+
+}
+
+
+.loader-line::after {
+
+    content: "";
+
+    display: block;
+
+    width: 0;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--gold)
+        );
+
+    animation:
+        loading 1.7s ease forwards;
+
+}
+
+
+@keyframes loading {
+
+    to {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   CANVAS
+========================================================= */
+
+#network {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: -5;
+
+    opacity: .5;
+
+}
+
+
+/* =========================================================
+   GRID BACKGROUND
+========================================================= */
+
+.grid-bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -4;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
+}
+
+
+/* =========================================================
+   NOISE
+========================================================= */
+
+.noise {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    pointer-events: none;
+
+    opacity: .025;
+
+    background-image:
+
+        url(
+        "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"
+        );
+
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor {
+
+    position: fixed;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    transform:
+        translate(-50%, -50%);
+
+    box-shadow:
+        0 0 18px var(--primary);
+
+}
+
+
+.cursor-ring {
+
+    position: fixed;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(184,140,255,.5);
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transform:
+        translate(-50%, -50%);
+
+    transition:
+        width .25s ease,
+        height .25s ease;
+
+}
+
+
+.cursor-ring.active {
+
+    width: 55px;
+
+    height: 55px;
+
+    border-color:
+        var(--gold);
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    z-index: 500;
+
+    padding: 22px 0;
+
+    transition: .4s ease;
+
+}
+
+
+.nav.scrolled {
+
+    padding: 13px 0;
+
+    background:
+        rgba(5,5,5,.82);
+
+    backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.nav-inner {
+
+    width:
+        min(
+            calc(100% - 50px),
+            var(--max)
+        );
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--text);
+
+}
+
+
+.logo span {
+
+    color: var(--primary);
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 27px;
+
+    list-style: none;
+
+}
+
+
+.nav-links a {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+    transition: .3s;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    color: var(--primary);
+
+    text-shadow:
+        0 0 15px
+        rgba(184,140,255,.5);
+
+}
+
+
+.menu-btn {
+
+    display: none;
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.container {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--max)
+        );
+
+    margin: auto;
+
+}
+
+
+section {
+
+    padding: 125px 0;
+
+    position: relative;
+
+}
+
+
+.section-label {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold);
+
+    margin-bottom: 18px;
+
+    text-transform: uppercase;
+
+}
+
+
+.section-title {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(40px, 6vw, 70px);
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.section-title span {
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.45);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-top: 120px;
+
+}
+
+
+.hero-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+}
+
+
+.hero-tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    color: var(--muted);
+
+    border:
+        1px solid var(--border);
+
+    padding:
+        10px 15px;
+
+    border-radius: 100px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    margin-bottom: 28px;
+
+}
+
+
+.status {
+
+    width: 7px;
+
+    height: 7px;
+
+    background: #76e6a5;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 12px #76e6a5;
+
+    animation:
+        pulse 1.7s infinite;
+
+}
+
+
+@keyframes pulse {
+
+    50% {
+
+        opacity: .3;
+
+        transform: scale(.7);
+
+    }
+
+}
+
+
+.hero h1 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(65px, 9vw, 125px);
+
+    line-height: .87;
+
+    letter-spacing: -7px;
+
+    margin-bottom: 32px;
+
+}
+
+
+.hero h1 .outline {
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.65);
+
+}
+
+
+.hero h1 .primary {
+
+    color: var(--primary);
+
+    text-shadow:
+        0 0 35px
+        rgba(184,140,255,.2);
+
+}
+
+
+.hero-description {
+
+    max-width: 650px;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+    color: var(--muted);
+
+    margin-bottom: 35px;
+
+}
+
+
+.hero-description strong {
+
+    color: var(--text);
+
+    font-weight: 500;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        14px 22px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 4px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    transition: .3s;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.btn-primary {
+
+    color: #050505;
+
+    background:
+        var(--primary);
+
+    border-color:
+        var(--primary);
+
+    font-weight: 600;
+
+}
+
+
+.btn-secondary {
+
+    background:
+        rgba(255,255,255,.025);
+
+    color: var(--text);
+
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+
+        0 10px 35px
+        rgba(184,140,255,.13);
+
+}
+
+
+/* =========================================================
+   PROFILE VISUAL
+========================================================= */
+
+.hero-visual {
+
+    display: flex;
+
+    justify-content: center;
+
+    position: relative;
+
+}
+
+
+.profile-orbit {
+
+    width: 390px;
+
+    height: 390px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.profile-orbit::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border:
+        1px solid
+        rgba(184,140,255,.3);
+
+    border-radius: 50%;
+
+    animation:
+        rotateOrbit 18s linear infinite;
+
+}
+
+
+.profile-orbit::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 22px;
+
+    border:
+        1px dashed
+        rgba(232,196,124,.3);
+
+    border-radius: 50%;
+
+    animation:
+        rotateOrbit 25s linear infinite reverse;
+
+}
+
+
+@keyframes rotateOrbit {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+.profile-wrap {
+
+    width: 260px;
+
+    height: 320px;
+
+    position: relative;
+
+    z-index: 3;
+
+    padding: 4px;
+
+    border-radius:
+        130px 130px 22px 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--primary),
+            #ffffff
+        );
+
+    box-shadow:
+
+        0 0 60px
+        rgba(184,140,255,.16),
+
+        0 0 100px
+        rgba(232,196,124,.06);
+
+}
+
+
+.profile-wrap img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position:
+        center top;
+
+    border-radius:
+        126px 126px 18px 18px;
+
+}
+
+
+.orbit-dot {
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    z-index: 5;
+
+}
+
+
+.dot1 {
+
+    top: 35px;
+
+    left: 65px;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 20px
+        var(--primary);
+
+}
+
+
+.dot2 {
+
+    right: 35px;
+
+    top: 150px;
+
+    background: var(--gold);
+
+    box-shadow:
+        0 0 20px
+        var(--gold);
+
+}
+
+
+.dot3 {
+
+    bottom: 45px;
+
+    left: 75px;
+
+    background: var(--primary-light);
+
+    box-shadow:
+        0 0 20px
+        var(--primary-light);
+
+}
+
+
+/* =========================================================
+   FLOAT LABELS
+========================================================= */
+
+.float-label {
+
+    position: absolute;
+
+    padding:
+        10px 14px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(8,8,10,.85);
+
+    backdrop-filter:
+        blur(15px);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    color: var(--muted);
+
+    z-index: 10;
+
+    animation:
+        float 4s ease-in-out infinite;
+
+}
+
+
+.label-ai {
+
+    top: 40px;
+
+    right: -5px;
+
+    color: var(--primary-light);
+
+}
+
+
+.label-engineer {
+
+    bottom: 45px;
+
+    left: -25px;
+
+    color: var(--gold);
+
+    animation-delay:
+        1.5s;
+
+}
+
+
+@keyframes float {
+
+    50% {
+
+        transform:
+            translateY(-12px);
+
+    }
+
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    padding:
+        18px 0;
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.015);
+
+}
+
+
+.marquee-track {
+
+    display: inline-block;
+
+    animation:
+        marquee 28s linear infinite;
+
+}
+
+
+.marquee span {
+
+    margin:
+        0 30px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    color: var(--muted);
+
+}
+
+
+.marquee b {
+
+    color: var(--gold);
+
+}
+
+
+@keyframes marquee {
+
+    to {
+
+        transform:
+            translateX(-50%);
+
+    }
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap: 75px;
+
+}
+
+
+.about-intro {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(27px, 3vw, 40px);
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+
+}
+
+
+.about-intro span {
+
+    color: var(--primary);
+
+}
+
+
+.about-text {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+}
+
+
+.about-text p {
+
+    margin-bottom: 18px;
+
+}
+
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+}
+
+
+.stat {
+
+    padding: 22px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.02);
+
+}
+
+
+.stat-number {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: var(--primary);
+
+}
+
+
+.stat-label {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    color: var(--muted);
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.timeline {
+
+    position: relative;
+
+    margin-top: 55px;
+
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--primary),
+            transparent
+        );
+
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    padding-left: 60px;
+
+    margin-bottom: 55px;
+
+}
+
+
+.timeline-dot {
+
+    position: absolute;
+
+    left: 9px;
+
+    top: 4px;
+
+    width: 11px;
+
+    height: 11px;
+
+    border-radius: 50%;
+
+    background:
+        var(--primary);
+
+    box-shadow:
+        0 0 20px
+        var(--primary);
+
+}
+
+
+.timeline-date {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 10px;
+
+    color: var(--gold);
+
+    margin-bottom: 9px;
+
+}
+
+
+.timeline-item h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 27px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.timeline-item h4 {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    margin-bottom: 12px;
+
+}
+
+
+.timeline-item p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+    max-width: 750px;
+
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 14px;
+
+    margin-top: 50px;
+
+}
+
+
+.experience-card {
+
+    padding: 30px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.008)
+        );
+
+    transition: .4s;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.experience-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(184,140,255,.4);
+
+    box-shadow:
+        0 15px 45px
+        rgba(184,140,255,.07);
+
+}
+
+
+.exp-year {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.experience-card h3 {
+
+    font-size: 21px;
+
+    margin-bottom: 6px;
+
+}
+
+
+.exp-company {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.experience-card p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+
+}
+
+
+.project-filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+}
+
+
+.filter {
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.025);
+
+    color: var(--muted);
+
+    padding:
+        8px 12px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.filter:hover,
+.filter.active {
+
+    background:
+        var(--primary);
+
+    color: #050505;
+
+    border-color:
+        var(--primary);
+
+}
+
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 18px;
+
+}
+
+
+.project-card {
+
+    min-height: 390px;
+
+    padding: 30px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.008)
+        );
+
+    position: relative;
+
+    overflow: hidden;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        border .3s ease;
+
+}
+
+
+.project-card:hover {
+
+    border-color:
+        rgba(184,140,255,.45);
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(184,140,255,.07);
+
+}
+
+
+.project-number {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    margin-bottom: 60px;
+
+}
+
+
+.project-icon {
+
+    position: absolute;
+
+    top: 24px;
+
+    right: 25px;
+
+    font-size: 35px;
+
+    color: var(--primary);
+
+    opacity: .7;
+
+}
+
+
+.project-card h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 29px;
+
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+
+    transform:
+        translateZ(25px);
+
+}
+
+
+.project-card p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    max-width: 550px;
+
+}
+
+
+.tech-stack {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+}
+
+
+.tech {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    color: var(--muted);
+
+    padding:
+        6px 9px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(0,0,0,.25);
+
+}
+
+
+.project-glow {
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    right: -130px;
+
+    bottom: -130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(184,140,255,.13),
+            transparent 65%
+        );
+
+    transition: .5s;
+
+}
+
+
+.project-card:hover
+.project-glow {
+
+    transform:
+        scale(1.5);
+
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        .7fr 1.3fr;
+
+    gap: 75px;
+
+}
+
+
+.skill-category {
+
+    margin-bottom: 27px;
+
+}
+
+
+.skill-category h3 {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+
+    text-transform: uppercase;
+
+}
+
+
+.skill-cloud {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+
+.skill-pill {
+
+    padding:
+        11px 14px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.025);
+
+    color: var(--muted);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    transition: .3s;
+
+}
+
+
+.skill-pill:hover {
+
+    color: var(--primary-light);
+
+    border-color:
+        rgba(184,140,255,.45);
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(184,140,255,.07);
+
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+.achievement-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 12px;
+
+    margin-top: 45px;
+
+}
+
+
+.achievement {
+
+    min-height: 180px;
+
+    padding: 22px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.02);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition: .35s;
+
+}
+
+
+.achievement:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(232,196,124,.45);
+
+}
+
+
+.achievement-icon {
+
+    font-size: 23px;
+
+    color: var(--gold);
+
+}
+
+
+.achievement h3 {
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+.achievement p {
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-box {
+
+    padding: 70px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(184,140,255,.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 15% 90%,
+            rgba(232,196,124,.05),
+            transparent 30%
+        ),
+
+        rgba(255,255,255,.018);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.contact-box h2 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(45px, 7vw, 85px);
+
+    line-height: .93;
+
+    letter-spacing: -5px;
+
+    max-width: 850px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.contact-box h2 span {
+
+    color: var(--primary);
+
+}
+
+
+.contact-description {
+
+    max-width: 620px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* CONTACT INFORMATION */
+
+.contact-info {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 10px;
+
+    max-width: 900px;
+
+    margin:
+        35px 0;
+
+}
+
+
+.contact-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 19px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition: .35s;
+
+}
+
+
+.contact-item:hover {
+
+    transform:
+        translateX(6px);
+
+    border-color:
+        rgba(184,140,255,.4);
+
+    background:
+        rgba(184,140,255,.035);
+
+}
+
+
+.contact-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    min-width: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(184,140,255,.3);
+
+    color: var(--primary);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 13px;
+
+}
+
+
+.contact-label {
+
+    display: block;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.contact-item strong {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    margin-top: 80px;
+
+    padding: 35px 0;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.footer-inner {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    color: var(--muted);
+
+}
+
+
+.footer-inner span:first-child {
+
+    color: var(--primary);
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+
+.reveal.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 950px) {
+
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 70px;
+
+        left: 15px;
+
+        right: 15px;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 25px;
+
+        background:
+            rgba(5,5,5,.96);
+
+        border:
+            1px solid var(--border);
+
+        backdrop-filter:
+            blur(20px);
+
+    }
+
+
+    .nav-links.open {
+
+        display: flex;
+
+    }
+
+
+    .menu-btn {
+
+        display: block;
+
+    }
+
+
+    .hero-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-visual {
+
+        order: -1;
+
+    }
+
+
+    .about-grid,
+    .skills-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .experience-grid,
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .achievement-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .projects-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+@media(max-width: 650px) {
+
+
+    section {
+
+        padding:
+            85px 0;
+
+    }
+
+
+    .container {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .nav-inner {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(
+                58px,
+                17vw,
+                85px
+            );
+
+        letter-spacing: -5px;
+
+    }
+
+
+    .profile-orbit {
+
+        width: 300px;
+
+        height: 300px;
+
+    }
+
+
+    .profile-wrap {
+
+        width: 210px;
+
+        height: 265px;
+
+    }
+
+
+    .float-label {
+
+        display: none;
+
+    }
+
+
+    .stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .achievement-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .contact-box {
+
+        padding:
+            40px 22px;
+
+    }
+
+
+    .contact-info {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .contact-box h2 {
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .footer-inner {
+
+        flex-direction: column;
+
+    }
+
+
+    .cursor,
+    .cursor-ring {
+
+        display: none;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     LOADER
+====================================================== -->
+
+<div class="loader">
+
+    <div class="loader-inner">
+
+        <div class="loader-logo">
+            AMBAREESH V P
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     BACKGROUND
+====================================================== -->
+
+<canvas id="network"></canvas>
+
+<div class="grid-bg"></div>
+
+<div class="noise"></div>
+
+
+<!-- ======================================================
+     CURSOR
+====================================================== -->
+
+<div class="cursor"></div>
+
+<div class="cursor-ring"></div>
+
+
+<!-- ======================================================
+     NAVIGATION
+====================================================== -->
+
+<header class="nav">
+
+    <div class="nav-inner">
+
+
+        <a href="#home"
+           class="logo">
+
+            AMBAREESH V P
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            aria-label="Open navigation">
+
+            ☰
+
+        </button>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">
+                    HOME
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    ABOUT
+                </a>
+            </li>
+
+            <li>
+                <a href="#education">
+                    EDUCATION
+                </a>
+            </li>
+
+            <li>
+                <a href="#experience">
+                    EXPERIENCE
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects">
+                    PROJECTS
+                </a>
+            </li>
+
+            <li>
+                <a href="#skills">
+                    SKILLS
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    CONTACT
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main>
+
+
+<!-- ======================================================
+     HOME
+====================================================== -->
+
+<section
+    class="hero"
+    id="home">
+
+    <div class="container">
+
+        <div class="hero-layout">
+
+
+            <div class="hero-content reveal">
+
+
+                <div class="hero-tag">
+
+                    <span class="status"></span>
+
+                    AVAILABLE FOR OPPORTUNITIES
+
+                </div>
+
+
+                <h1>
+
+                    AMBAREESH
+
+                    <br>
+
+                    <span class="outline">
+                        V
+                    </span><span class="primary">
+                        P
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Mechanical Engineering graduate
+                    building a future at the intersection of
+
+                    <strong>
+                        Artificial Intelligence
+                    </strong>,
+
+                    <strong>
+                        Machine Learning
+                    </strong>,
+
+                    <strong>
+                        Data Science
+                    </strong>
+
+                    and
+
+                    <strong>
+                        Engineering
+                    </strong>.
+
+                    <br><br>
+
+                    I combine engineering problem-solving,
+                    numerical analysis and computational
+                    thinking to build practical solutions.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+
+                    <a href="#projects"
+                       class="btn btn-primary magnetic">
+
+                        EXPLORE MY WORK
+
+                        <span>↗</span>
+
+                    </a>
+
+
+                    <a href="MY_RESUME.pdf"
+                       target="_blank"
+                       class="btn btn-secondary magnetic">
+
+                        VIEW RESUME
+
+                        <span>↓</span>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="hero-visual reveal">
+
+
+                <div class="profile-orbit">
+
+
+                    <div class="orbit-dot dot1"></div>
+
+                    <div class="orbit-dot dot2"></div>
+
+                    <div class="orbit-dot dot3"></div>
+
+
+                    <div class="profile-wrap">
+
+                        <img
+                            src="PROFILE PICTURE.png"
+                            alt="Ambareesh V P">
+
+                    </div>
+
+
+                    <div class="float-label label-ai">
+
+                        AI / ML
+
+                    </div>
+
+
+                    <div class="float-label label-engineer">
+
+                        MECHANICAL ENGINEERING
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     MARQUEE
+====================================================== -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+
+        <span>PYTHON</span>
+        <b>✦</b>
+
+        <span>MACHINE LEARNING</span>
+        <b>✦</b>
+
+        <span>DATA SCIENCE</span>
+        <b>✦</b>
+
+        <span>DEEP LEARNING</span>
+        <b>✦</b>
+
+        <span>ENGINEERING</span>
+        <b>✦</b>
+
+        <span>NUMERICAL ANALYSIS</span>
+        <b>✦</b>
+
+        <span>OPTIMIZATION</span>
+        <b>✦</b>
+
+        <span>PYTHON</span>
+        <b>✦</b>
+
+        <span>MACHINE LEARNING</span>
+        <b>✦</b>
+
+        <span>DATA SCIENCE</span>
+        <b>✦</b>
+
+        <span>DEEP LEARNING</span>
+        <b>✦</b>
+
+        <span>ENGINEERING</span>
+        <b>✦</b>
+
+        <span>NUMERICAL ANALYSIS</span>
+        <b>✦</b>
+
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     ABOUT
+====================================================== -->
+
+<section id="about">
+
+    <div class="container">
+
+
+        <div class="section-label reveal">
+            ABOUT
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-intro reveal">
+
+                ENGINEERING
+
+                <span>
+                    THINKING.
+                </span>
+
+                <br>
+
+                INTELLIGENT
+
+                <span>
+                    SOLUTIONS.
+                </span>
+
+            </div>
+
+
+            <div class="about-text reveal">
+
+
+                <p>
+
+                    I am a Mechanical Engineering graduate
+                    from the College of Engineering Trivandrum
+                    with strong analytical, numerical and
+                    technical problem-solving skills.
+
+                </p>
+
+
+                <p>
+
+                    My current focus is Artificial Intelligence,
+                    Machine Learning and Data Science, where
+                    I combine engineering fundamentals with
+                    computational methods.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy working with Python, data analysis,
+                    deep learning, numerical analysis and
+                    optimization to understand problems,
+                    develop solutions and interpret results.
+
+                </p>
+
+
+                <div class="stats">
+
+
+                    <div class="stat">
+
+                        <div class="stat-number"
+                             data-count="2">
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            MAJOR PROJECTS
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-number"
+                             data-count="4">
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            WORKSHOPS
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-number"
+                             data-count="2025">
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            GRADUATION
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     EDUCATION
+====================================================== -->
+
+<section id="education">
+
+    <div class="container">
+
+
+        <div class="section-label reveal">
+            EDUCATION
+        </div>
+
+
+        <h2 class="section-title reveal">
+
+            THE
+
+            <span>
+                FOUNDATION
+            </span>
+
+        </h2>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    2021 — MAY 2025
+                </div>
+
+                <h3>
+                    Bachelor of Engineering
+                </h3>
+
+                <h4>
+                    Mechanical Engineering ·
+                    College of Engineering Trivandrum
+                </h4>
+
+                <p>
+
+                    Developed a strong foundation in
+                    engineering analysis, numerical methods,
+                    optimization and technical problem solving.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    2019 — 2021
+                </div>
+
+                <h3>
+                    Higher Secondary Education
+                </h3>
+
+                <h4>
+                    St. George HSS, Thodupuzha
+                </h4>
+
+                <p>
+                    Classes 11 and 12.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    2010 — 2019
+                </div>
+
+                <h3>
+                    School Education
+                </h3>
+
+                <h4>
+                    Kendriya Vidyalaya Idukki
+                </h4>
+
+                <p>
+                    Kerala, India.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     EXPERIENCE
+====================================================== -->
+
+<section id="experience">
+
+    <div class="container">
+
+
+        <div class="section-label reveal">
+            EXPERIENCE
+        </div>
+
+
+        <h2 class="section-title reveal">
+
+            LEADERSHIP &
+
+            <span>
+                EXPERIENCE
+            </span>
+
+        </h2>
+
+
+        <div class="experience-grid">
+
+
+            <div class="experience-card reveal">
+
+                <div class="exp-year">
+                    2025
+                </div>
+
+                <h3>
+                    Hospitality Head
+                </h3>
+
+                <div class="exp-company">
+                    Override 2025 · Mechanical Department Fest
+                </div>
+
+                <p>
+
+                    Led hospitality operations,
+                    guest reception, participant support
+                    and event logistics while coordinating
+                    with multiple committees.
+
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="exp-year">
+                    2025
+                </div>
+
+                <h3>
+                    Sports Head
+                </h3>
+
+                <div class="exp-company">
+                    Override 2025 · Mechanical Department Fest
+                </div>
+
+                <p>
+
+                    Organized competitive sports events,
+                    scheduling, venue setup and participant
+                    coordination.
+
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="exp-year">
+                    2024
+                </div>
+
+                <h3>
+                    Marketing & General Management Volunteer
+                </h3>
+
+                <div class="exp-company">
+                    Dhwani'24 · College of Engineering Trivandrum
+                </div>
+
+                <p>
+
+                    Supported marketing outreach,
+                    volunteer coordination and
+                    general event-management activities.
+
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="exp-year">
+                    2022 — 2023
+                </div>
+
+                <h3>
+                    Technical Workshops
+                </h3>
+
+                <div class="exp-company">
+                    MATLAB · Fusion 360 · Automotive · Mobility
+                </div>
+
+                <p>
+
+                    Gained practical exposure to MATLAB,
+                    Fusion 360, automotive diagnostics,
+                    tuning and future mobility technologies.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PROJECTS
+====================================================== -->
+
+<section id="projects">
+
+    <div class="container">
+
+
+        <div class="projects-header">
+
+
+            <div>
+
+                <div class="section-label reveal">
+                    PROJECTS
+                </div>
+
+                <h2 class="section-title reveal">
+
+                    SELECTED
+
+                    <span>
+                        WORK
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="project-filters reveal">
+
+                <button
+                    class="filter active"
+                    data-filter="all">
+
+                    ALL
+
+                </button>
+
+
+                <button
+                    class="filter"
+                    data-filter="ai">
+
+                    AI / ML
+
+                </button>
+
+
+                <button
+                    class="filter"
+                    data-filter="engineering">
+
+                    ENGINEERING
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <article
+                class="project-card reveal"
+                data-category="ai">
+
+
+                <div class="project-number">
+                    PROJECT
+                </div>
+
+
+                <div class="project-icon">
+                    ◉
+                </div>
+
+
+                <h3>
+
+                    Cat vs Dog
+
+                    <br>
+
+                    Image Classification
+
+                </h3>
+
+
+                <p>
+
+                    Built a Convolutional Neural Network
+                    for binary image classification.
+                    Prepared image datasets, implemented
+                    preprocessing and designed convolution,
+                    pooling and fully connected layers.
+
+                </p>
+
+
+                <div class="tech-stack">
+
+                    <span class="tech">
+                        PYTHON
+                    </span>
+
+                    <span class="tech">
+                        TENSORFLOW
+                    </span>
+
+                    <span class="tech">
+                        KERAS
+                    </span>
+
+                    <span class="tech">
+                        CNN
+                    </span>
+
+                    <span class="tech">
+                        MATPLOTLIB
+                    </span>
+
+                </div>
+
+
+                <div class="project-glow"></div>
+
+
+            </article>
+
+
+            <!-- PROJECT 2 -->
+
+            <article
+                class="project-card reveal"
+                data-category="engineering">
+
+
+                <div class="project-number">
+                    PROJECT
+                </div>
+
+
+                <div class="project-icon">
+                    ◇
+                </div>
+
+
+                <h3>
+
+                    Hollow-Core Radial
+
+                    <br>
+
+                    Slotted Pin Fin
+
+                </h3>
+
+
+                <p>
+
+                    Conducted numerical investigation
+                    of a hollow-core radial slotted pin-fin
+                    heat sink to study thermal performance,
+                    engineering parameters and design
+                    configurations.
+
+                </p>
+
+
+                <div class="tech-stack">
+
+                    <span class="tech">
+                        NUMERICAL ANALYSIS
+                    </span>
+
+                    <span class="tech">
+                        OPTIMIZATION
+                    </span>
+
+                    <span class="tech">
+                        THERMAL
+                    </span>
+
+                    <span class="tech">
+                        ENGINEERING
+                    </span>
+
+                </div>
+
+
+                <div class="project-glow"></div>
+
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SKILLS
+====================================================== -->
+
+<section id="skills">
+
+    <div class="container">
+
+
+        <div class="skills-layout">
+
+
+            <div>
+
+                <div class="section-label reveal">
+                    SKILLS
+                </div>
+
+
+                <h2 class="section-title reveal">
+
+                    MY
+
+                    <span>
+                        TOOLBOX
+                    </span>
+
+                </h2>
+
+
+                <p class="hero-description reveal">
+
+                    A hybrid skill set combining
+                    engineering fundamentals with
+                    computational intelligence.
+
+                </p>
+
+            </div>
+
+
+            <div class="reveal">
+
+
+                <div class="skill-category">
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <div class="skill-cloud">
+
+                        <div class="skill-pill">
+                            Python
+                        </div>
+
+                        <div class="skill-pill">
+                            MATLAB
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category">
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+                    <div class="skill-cloud">
+
+                        <div class="skill-pill">
+                            Machine Learning
+                        </div>
+
+                        <div class="skill-pill">
+                            Deep Learning
+                        </div>
+
+                        <div class="skill-pill">
+                            CNN
+                        </div>
+
+                        <div class="skill-pill">
+                            TensorFlow
+                        </div>
+
+                        <div class="skill-pill">
+                            Keras
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category">
+
+                    <h3>
+                        Data Science
+                    </h3>
+
+                    <div class="skill-cloud">
+
+                        <div class="skill-pill">
+                            Data Analysis
+                        </div>
+
+                        <div class="skill-pill">
+                            Data Preprocessing
+                        </div>
+
+                        <div class="skill-pill">
+                            Data Visualization
+                        </div>
+
+                        <div class="skill-pill">
+                            Numerical Analysis
+                        </div>
+
+                        <div class="skill-pill">
+                            NumPy
+                        </div>
+
+                        <div class="skill-pill">
+                            pandas
+                        </div>
+
+                        <div class="skill-pill">
+                            Matplotlib
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category">
+
+                    <h3>
+                        Engineering
+                    </h3>
+
+                    <div class="skill-cloud">
+
+                        <div class="skill-pill">
+                            AutoCAD
+                        </div>
+
+                        <div class="skill-pill">
+                            Fusion 360
+                        </div>
+
+                        <div class="skill-pill">
+                            Basic CFD
+                        </div>
+
+                        <div class="skill-pill">
+                            Optimization
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category">
+
+                    <h3>
+                        Core Skills
+                    </h3>
+
+                    <div class="skill-cloud">
+
+                        <div class="skill-pill">
+                            Problem Solving
+                        </div>
+
+                        <div class="skill-pill">
+                            Analytical Thinking
+                        </div>
+
+                        <div class="skill-pill">
+                            Project Management
+                        </div>
+
+                        <div class="skill-pill">
+                            Team Collaboration
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     ACHIEVEMENTS
+====================================================== -->
+
+<section>
+
+    <div class="container">
+
+
+        <div class="section-label reveal">
+            ACTIVITIES
+        </div>
+
+
+        <h2 class="section-title reveal">
+
+            ACHIEVEMENTS &
+
+            <span>
+                ACTIVITIES
+            </span>
+
+        </h2>
+
+
+        <div class="achievement-grid">
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-icon">
+                    ⚽
+                </div>
+
+                <h3>
+                    Champion —
+                    A-Zone Football Tournament
+                </h3>
+
+                <p>
+                    2022–23 · 2023–24
+                </p>
+
+            </div>
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Champion —
+                    Torque Football Tournament
+                </h3>
+
+                <p>
+                    2022–23
+                </p>
+
+            </div>
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-icon">
+                    ✈
+                </div>
+
+                <h3>
+                    Member —
+                    Aeronautical Society of India
+                </h3>
+
+                <p>
+                    PROFESSIONAL ACTIVITY
+                </p>
+
+            </div>
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-icon">
+                    ⚙
+                </div>
+
+                <h3>
+                    Member —
+                    College Football Team
+                </h3>
+
+                <p>
+                    COLLEGE OF ENGINEERING TRIVANDRUM
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+
+<section id="contact">
+
+    <div class="container">
+
+
+        <div class="contact-box reveal">
+
+
+            <div class="section-label">
+                CONTACT
+            </div>
+
+
+            <h2>
+
+                LET'S BUILD
+
+                <span>
+                    WHAT'S NEXT.
+                </span>
+
+            </h2>
+
+
+            <p class="contact-description">
+
+                I'm open to entry-level opportunities
+                in AI/ML, Data Science and technology
+                roles where engineering problem-solving
+                and computational skills can create
+                real-world impact.
+
+            </p>
+
+
+            <!-- CONTACT DETAILS -->
+
+            <div class="contact-info">
+
+
+                <!-- ADDRESS -->
+
+                <a
+                    class="contact-item"
+                    href="https://www.google.com/maps/search/?api=1&query=Thodupuzha%2C%20Kerala%2C%20India"
+                    target="_blank">
+
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+
+                    <div>
+
+                        <span class="contact-label">
+                            ADDRESS
+                        </span>
+
+                        <strong>
+                            Thodupuzha, Kerala, India
+                        </strong>
+
+                    </div>
+
+
+                </a>
+
+
+                <!-- PHONE -->
+
+                <a
+                    class="contact-item"
+                    href="tel:+919074429889">
+
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+
+                    <div>
+
+                        <span class="contact-label">
+                            PHONE
+                        </span>
+
+                        <strong>
+                            +91 90744 29889
+                        </strong>
+
+                    </div>
+
+
+                </a>
+
+
+                <!-- EMAIL -->
+
+                <a
+                    class="contact-item"
+                    href="mailto:ambrozr11@gmail.com">
+
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+
+                    <div>
+
+                        <span class="contact-label">
+                            EMAIL
+                        </span>
+
+                        <strong>
+                            ambrozr11@gmail.com
+                        </strong>
+
+                    </div>
+
+
+                </a>
+
+
+                <!-- LINKEDIN -->
+
+                <a
+                    class="contact-item"
+                    href="https://www.linkedin.com/in/ambareesh-v-p-b7a093364/"
+                    target="_blank">
+
+
+                    <div class="contact-icon">
+                        in
+                    </div>
+
+
+                    <div>
+
+                        <span class="contact-label">
+                            LINKEDIN
+                        </span>
+
+                        <strong>
+                            Ambareesh V P
+                        </strong>
+
+                    </div>
+
+
+                </a>
+
+
+                <!-- GITHUB -->
+
+                <a
+                    class="contact-item"
+                    href="https://github.com/ambrozr11-NJ"
+                    target="_blank">
+
+
+                    <div class="contact-icon">
+                        &lt;/&gt;
+                    </div>
+
+
+                    <div>
+
+                        <span class="contact-label">
+                            GITHUB
+                        </span>
+
+                        <strong>
+                            ambrozr11-NJ
+                        </strong>
+
+                    </div>
+
+
+                </a>
+
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="hero-buttons">
+
+
+                <a
+                    href="mailto:ambrozr11@gmail.com"
+                    class="btn btn-primary magnetic">
+
+                    SEND EMAIL
+
+                    ↗
+
+                </a>
+
+
+                <a
+                    href="tel:+919074429889"
+                    class="btn btn-secondary magnetic">
+
+                    CALL ME
+
+                    ☎
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/ambareesh-v-p-b7a093364/"
+                    target="_blank"
+                    class="btn btn-secondary magnetic">
+
+                    LINKEDIN
+
+                    ↗
+
+                </a>
+
+
+                <a
+                    href="https://github.com/ambrozr11-NJ"
+                    target="_blank"
+                    class="btn btn-secondary magnetic">
+
+                    GITHUB
+
+                    ↗
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-inner">
+
+
+            <span>
+                AMBAREESH V P
+            </span>
+
+
+            <span>
+                AI × ENGINEERING × DATA
+            </span>
+
+
+            <span>
+                THODUPUZHA, KERALA
+            </span>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            () => {
+
+                document
+                    .querySelector(".loader")
+                    .classList
+                    .add("hide");
+
+            },
+            700
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+const cursor =
+    document.querySelector(".cursor");
+
+const cursorRing =
+    document.querySelector(".cursor-ring");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ringX = 0;
+let ringY = 0;
+
+
+document.addEventListener(
+    "mousemove",
+    e => {
+
+        mouseX = e.clientX;
+
+        mouseY = e.clientY;
+
+        cursor.style.left =
+            mouseX + "px";
+
+        cursor.style.top =
+            mouseY + "px";
+
+    }
+);
+
+
+function cursorAnimation() {
+
+    ringX +=
+        (mouseX - ringX) * .12;
+
+    ringY +=
+        (mouseY - ringY) * .12;
+
+    cursorRing.style.left =
+        ringX + "px";
+
+    cursorRing.style.top =
+        ringY + "px";
+
+    requestAnimationFrame(
+        cursorAnimation
+    );
+
+}
+
+
+cursorAnimation();
+
+
+document
+    .querySelectorAll(
+        "a, button, .project-card, .skill-pill"
+    )
+    .forEach(
+        element => {
+
+            element.addEventListener(
+                "mouseenter",
+                () => {
+
+                    cursorRing
+                        .classList
+                        .add("active");
+
+                }
+            );
+
+
+            element.addEventListener(
+                "mouseleave",
+                () => {
+
+                    cursorRing
+                        .classList
+                        .remove("active");
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   NAVIGATION SCROLL
+========================================================= */
+
+const nav =
+    document.querySelector(".nav");
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(
+            window.scrollY > 40
+        ) {
+
+            nav
+                .classList
+                .add("scrolled");
+
+        } else {
+
+            nav
+                .classList
+                .remove("scrolled");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+    document.querySelector(".menu-btn");
+
+const navLinks =
+    document.querySelector(".nav-links");
+
+
+menuBtn.addEventListener(
+    "click",
+    () => {
+
+        navLinks
+            .classList
+            .toggle("open");
+
+    }
+);
+
+
+navLinks
+    .querySelectorAll("a")
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks
+                        .classList
+                        .remove("open");
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   ACTIVE NAV
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+const links =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
+
+const navObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ) {
+
+                        links.forEach(
+                            link => {
+
+                                link.classList
+                                    .remove(
+                                        "active"
+                                    );
+
+
+                                if(
+                                    link.getAttribute(
+                                        "href"
+                                    )
+                                    ===
+                                    "#" +
+                                    entry.target.id
+                                ) {
+
+                                    link.classList
+                                        .add(
+                                            "active"
+                                        );
+
+                                }
+
+                            }
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            rootMargin:
+                "-40% 0px -50% 0px"
+        }
+    );
+
+
+sections.forEach(
+    section => {
+
+        navObserver.observe(
+            section
+        );
+
+    }
+);
+
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+const counters =
+    document.querySelectorAll(
+        ".stat-number"
+    );
+
+let countersStarted = false;
+
+
+const counterObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting &&
+                        !countersStarted
+                    ) {
+
+                        countersStarted = true;
+
+
+                        counters.forEach(
+                            counter => {
+
+                                const target =
+                                    Number(
+                                        counter.dataset.count
+                                    );
+
+
+                                let current = 0;
+
+
+                                const duration =
+                                    target > 100
+                                    ? 1400
+                                    : 800;
+
+
+                                const increment =
+                                    target / 40;
+
+
+                                const timer =
+                                    setInterval(
+                                        () => {
+
+                                            current +=
+                                                increment;
+
+
+                                            if(
+                                                current >=
+                                                target
+                                            ) {
+
+                                                current =
+                                                    target;
+
+                                                clearInterval(
+                                                    timer
+                                                );
+
+                                            }
+
+
+                                            counter.textContent =
+                                                Math.floor(
+                                                    current
+                                                );
+
+                                        },
+                                        duration / 40
+                                    );
+
+                            }
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+const stats =
+    document.querySelector(".stats");
+
+
+if(stats) {
+
+    counterObserver.observe(
+        stats
+    );
+
+}
+
+
+/* =========================================================
+   PROJECT FILTER
+========================================================= */
+
+const filters =
+    document.querySelectorAll(
+        ".filter"
+    );
+
+const projects =
+    document.querySelectorAll(
+        ".project-card"
+    );
+
+
+filters.forEach(
+    filter => {
+
+        filter.addEventListener(
+            "click",
+            () => {
+
+
+                filters.forEach(
+                    item =>
+                        item.classList
+                            .remove("active")
+                );
+
+
+                filter.classList
+                    .add("active");
+
+
+                const category =
+                    filter.dataset.filter;
+
+
+                projects.forEach(
+                    project => {
+
+
+                        if(
+                            category === "all" ||
+                            project.dataset.category
+                                === category
+                        ) {
+
+                            project.style.display =
+                                "block";
+
+
+                            setTimeout(
+                                () => {
+
+                                    project.style.opacity =
+                                        "1";
+
+                                    project.style.transform =
+                                        "scale(1)";
+
+                                },
+                                10
+                            );
+
+                        } else {
+
+                            project.style.opacity =
+                                "0";
+
+                            project.style.transform =
+                                "scale(.94)";
+
+
+                            setTimeout(
+                                () => {
+
+                                    project.style.display =
+                                        "none";
+
+                                },
+                                250
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   3D PROJECT CARDS
+========================================================= */
+
+document
+    .querySelectorAll(".project-card")
+    .forEach(
+        card => {
+
+
+            card.addEventListener(
+                "mousemove",
+                e => {
+
+
+                    if(
+                        window.innerWidth < 800
+                    ) return;
+
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+
+                    const x =
+                        e.clientX -
+                        rect.left;
+
+
+                    const y =
+                        e.clientY -
+                        rect.top;
+
+
+                    const centerX =
+                        rect.width / 2;
+
+
+                    const centerY =
+                        rect.height / 2;
+
+
+                    const rotateX =
+                        (y - centerY) / 20;
+
+
+                    const rotateY =
+                        (centerX - x) / 20;
+
+
+                    card.style.transform =
+
+                        `perspective(900px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)
+                         translateY(-6px)
+                         scale(1.01)`;
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.style.transform =
+                        "none";
+
+                }
+            );
+
+
+        }
+    );
+
+
+/* =========================================================
+   MAGNETIC BUTTONS
+========================================================= */
+
+document
+    .querySelectorAll(".magnetic")
+    .forEach(
+        button => {
+
+
+            button.addEventListener(
+                "mousemove",
+                e => {
+
+
+                    const rect =
+                        button.getBoundingClientRect();
+
+
+                    const x =
+                        e.clientX -
+                        rect.left -
+                        rect.width / 2;
+
+
+                    const y =
+                        e.clientY -
+                        rect.top -
+                        rect.height / 2;
+
+
+                    button.style.transform =
+
+                        `translate(
+                            ${x * .15}px,
+                            ${y * .15}px
+                        )`;
+
+                }
+            );
+
+
+            button.addEventListener(
+                "mouseleave",
+                () => {
+
+                    button.style.transform =
+                        "translate(0,0)";
+
+                }
+            );
+
+
+        }
+    );
+
+
+/* =========================================================
+   NEURAL NETWORK
+========================================================= */
+
+const canvas =
+    document.getElementById(
+        "network"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let particles = [];
+
+
+const particleCount =
+    window.innerWidth < 700
+    ? 40
+    : 80;
+
+
+function resizeCanvas() {
+
+
+    canvas.width =
+        window.innerWidth *
+        window.devicePixelRatio;
+
+
+    canvas.height =
+        window.innerHeight *
+        window.devicePixelRatio;
+
+
+    canvas.style.width =
+        window.innerWidth + "px";
+
+
+    canvas.style.height =
+        window.innerHeight + "px";
+
+
+    ctx.setTransform(
+        window.devicePixelRatio,
+        0,
+        0,
+        window.devicePixelRatio,
+        0,
+        0
+    );
+
+}
+
+
+resizeCanvas();
+
+
+class Particle {
+
+
+    constructor() {
+
+
+        this.x =
+            Math.random() *
+            window.innerWidth;
+
+
+        this.y =
+            Math.random() *
+            window.innerHeight;
+
+
+        this.vx =
+            (Math.random() - .5) *
+            .3;
+
+
+        this.vy =
+            (Math.random() - .5) *
+            .3;
+
+
+        this.radius =
+            Math.random() *
+            1.4 + .4;
+
+
+    }
+
+
+    update() {
+
+
+        this.x +=
+            this.vx;
+
+
+        this.y +=
+            this.vy;
+
+
+        if(
+            this.x < 0 ||
+            this.x > window.innerWidth
+        ) {
+
+            this.vx *= -1;
+
+        }
+
+
+        if(
+            this.y < 0 ||
+            this.y > window.innerHeight
+        ) {
+
+            this.vy *= -1;
+
+        }
+
+    }
+
+
+    draw() {
+
+
+        ctx.beginPath();
+
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.radius,
+            0,
+            Math.PI * 2
+        );
+
+
+        ctx.fillStyle =
+            "rgba(184,140,255,.45)";
+
+
+        ctx.fill();
+
+    }
+
+}
+
+
+for(
+    let i = 0;
+    i < particleCount;
+    i++
+) {
+
+    particles.push(
+        new Particle()
+    );
+
+}
+
+
+function animateNetwork() {
+
+
+    ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
+
+
+    particles.forEach(
+        particle => {
+
+            particle.update();
+
+            particle.draw();
+
+        }
+    );
+
+
+    for(
+        let i = 0;
+        i < particles.length;
+        i++
+    ) {
+
+
+        for(
+            let j = i + 1;
+            j < particles.length;
+            j++
+        ) {
+
+
+            const a =
+                particles[i];
+
+
+            const b =
+                particles[j];
+
+
+            const dx =
+                a.x - b.x;
+
+
+            const dy =
+                a.y - b.y;
+
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+
+            if(
+                distance < 130
+            ) {
+
+
+                const opacity =
+                    .10 *
+                    (
+                        1 -
+                        distance / 130
+                    );
+
+
+                ctx.beginPath();
+
+
+                ctx.moveTo(
+                    a.x,
+                    a.y
+                );
+
+
+                ctx.lineTo(
+                    b.x,
+                    b.y
+                );
+
+
+                ctx.strokeStyle =
+                    `rgba(
+                        184,
+                        140,
+                        255,
+                        ${opacity}
+                    )`;
+
+
+                ctx.lineWidth =
+                    .5;
+
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+
+    requestAnimationFrame(
+        animateNetwork
+    );
+
+}
+
+
+animateNetwork();
+
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        resizeCanvas();
+
+    }
+);
+
+
+/* =========================================================
+   HERO PARALLAX
+========================================================= */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+
+        const visual =
+            document.querySelector(
+                ".hero-visual"
+            );
+
+
+        if(
+            visual &&
+            window.innerWidth > 800
+        ) {
+
+
+            visual.style.transform =
+
+                `translateY(
+                    ${window.scrollY * .06}px
+                )`;
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
